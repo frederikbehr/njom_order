@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:nom_order/data/runtime_manager.dart';
-import 'package:nom_order/pages/home/home_page.dart';
+import 'package:nom_order/authentication/wrapper.dart';
+import 'package:nom_order/controller/controller.dart';
+import 'package:nom_order/firebase_options.dart';
 import 'package:provider/provider.dart';
 import 'authentication/auth_service.dart';
 import 'authentication/user.dart';
@@ -10,12 +11,12 @@ import 'l10n/locales.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-Future<RuntimeManager> getRuntimeManager() async{
+Future<Controller> getControllerInstance() async{
   //Get locale
   Locale? locale = await LocaleChanger().getLocale();
 
   //The runtime data object
-  return RuntimeManager(
+  return Controller(
     authService: AuthService(),
     locale: locale,
   );
@@ -26,14 +27,16 @@ void main() async {
   //WidgetsBinding
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(App(runtimeManager: await getRuntimeManager()));
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  runApp(App(controllerInstance: await getControllerInstance()));
 }
 
 class App extends StatelessWidget {
-  final RuntimeManager runtimeManager;
+  final Controller controllerInstance;
   const App({
     super.key,
-    required this.runtimeManager,
+    required this.controllerInstance,
   });
 
   @override
@@ -41,23 +44,23 @@ class App extends StatelessWidget {
     return StreamProvider<UserUid?>.value(
       initialData: null,
       catchError: (_, err) => null,
-      value: runtimeManager.authService.user,
+      value: controllerInstance.authService.user,
       child: MaterialApp(
         title: 'Nom Order',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
+          fontFamily: "noto",
+          primaryColor: Colors.grey,
         ),
         supportedLocales: L10n.all,
-        locale: runtimeManager.locale,
+        locale: controllerInstance.locale,
         localizationsDelegates: const [
           AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        home: const HomePage(),
+        home: Wrapper(controllerInstance: controllerInstance),
       ),
     );
   }

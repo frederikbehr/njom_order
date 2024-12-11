@@ -6,5 +6,166 @@
   "password_not_match" : "Passwords do not match",
   "@password_not_match" : {
     "description" : "for login page"
+  },
+  "sign_in" : "Sign in",
+  "@sign_in" : {
+    "description" : "title at login page"
+  },
+  "password_error" : "Password needs to be min. 8 characters",
+  "@password_error" : {
+    "description" : ""
+  },
+  "password_not_match" : "Passwords do not match",
+  "@password_not_match" : {
+    "description" : "for login page"
+  },
+  "email_not_valid" : "Email not valid.",
+  "@email_not_valid" : {
+    "description" : "for login page"
+  },
+  "welcome_back" : "Welcome back",
+  "@welcome_back" : {
+    "description" : "for login page"
+  },
+  "first_name" : "First name",
+  "@first_name" : {
+    "description" : "for login page"
+  },
+  "email" : "Email",
+  "@email" : {
+    "description" : "for login page"
+  },
+  "password" : "Password",
+  "@password" : {
+    "description" : "for login page"
+  },
+  "repeat_password" : "Repeat password",
+  "@repeat_password" : {
+    "description" : "for login page"
+  },
+  "i_forgot_password" : "I forgot my password",
+  "@i_forgot_password" : {
+    "description" : "for login page"
+  },
+  "password_recovery" : "To set a new password enter your email below and press 'Send'",
+  "@password_recovery" : {
+     "description" : "for login page"
+  },
+  "continue_with_email" : "Continue with email",
+  "@continue_with_email" : {
+     "description" : "for login page"
+  },
+  "sign_in_with_x" : "Sign in with {option}",
+  "@sign_in_with_x" : {
+    "description" : "for login page",
+    "placeholders" : {
+      "option" : {
+        "type" : "String"
+      }
+    }
+  },
+  "remember_at": "Remember the '@' in your email",
+  "@remember_at": {
+    "description": "for email validation"
+  },
+  "not_an_email": "This is not an email",
+  "@not_an_email": {
+    "description": "for email validation"
+  },
+  "email_too_short": "Email is too short",
+  "@email_too_short": {
+    "description": "for email validation"
+  },
+  "please_fill_email": "Please fill in your email",
+  "@please_fill_email": {
+    "description": "for email field"
+  },
+  "password_cannot_be_empty": "Password cannot be left empty",
+  "@password_cannot_be_empty": {
+    "description": "for password field"
+  },
+  "password_too_short": "Password is too short",
+  "@password_too_short": {
+    "description": "for password validation"
+  },
+  "please_fill_password": "Please fill in your password",
+  "@please_fill_password": {
+    "description": "for password field"
+  },
+  "something_went_wrong" : "Something went wrong... Please try again.",
+  "@something_went_wrong" : {
+    "description" : "for login page"
+  },
+  "close" : "Close",
+  "@close" : {
+    "description" : ""
+  },
+  "title" : "Nyom Order",
+  "@title" : {
+     "description" : "for login"
+  },
+  "enter_email" : "Enter your email",
+  "@enter_email" : {
+    "description" : "for login"
+  },
+  "become_member_below" : "Continue below with your email address.",
+  "@become_member_below" : {
+     "description" : "for login page"
+  },
+  "lets_get_started" : "Let's get you started!",
+  "@lets_get_started" : {
+     "description" : "for login page"
+  },
+  "one_more_thing" : "One more thing...",
+  "@one_more_thing" : {
+     "description" : "for login page"
+  },
+  "fill_in_credentials" : "Fill in your email and password",
+  "@fill_in_credentials" : {
+     "description" : "for login page"
+  },
+  "fill_in_password" : "Fill in your password below, please",
+  "@fill_in_password" : {
+     "description" : "for login page"
+  },
+  "enter_password" : "Enter your password",
+  "@enter_password" : {
+     "description" : "for login page"
+  },
+  "password_requirements" : "Password must be min. 6 characters long, and should ideally contain special characters.",
+  "@password_requirements" : {
+     "description" : "for login page"
+  },
+  "terms_of_service" : "Terms of Service",
+  "@terms_of_service" : {
+     "description" : "for login page"
+  },
+  "or" : "or",
+  "@or" : {
+    "description" : "for login page"
+  },
+  "by_signing_up1" : "By signing up, you accept the",
+  "@by_signing_up1" : {
+    "description" : "for login page - terms and conditions"
+  },
+  "by_signing_up2" : "and",
+  "@by_signing_up2" : {
+    "description" : "for login page - terms and conditions"
+  },
+  "privacy_policy" : "Privacy Policy",
+  "@privacy_policy" : {
+     "description" : "for login page"
+  },
+  "email_sent": "Email sent",
+  "@email_sent": {
+    "description": "for notification"
+  },
+  "email_sent_confirmation" : "We have sent you an email with instructions to reset the password",
+  "@email_sent_confirmation" : {
+    "description" : "for login page"
+  },
+  "send" : "Send",
+  "@send" : {
+    "description" : "for login page"
   }
 }

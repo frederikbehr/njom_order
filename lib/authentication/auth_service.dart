@@ -17,7 +17,7 @@ class AuthService {
   Stream<UserUid> get user =>
       auth.authStateChanges().map((User? user) => _userFromFirebaseUser(user!));
 
-  Future setUserData(String email, String name, String uid) async {
+  Future setUserData(String email, String uid) async {
     return await _firestore.collection("userData").doc(uid).set({
       'restaurantName': "Not set",
     });
@@ -33,11 +33,11 @@ class AuthService {
   }
 
   //register with email & password
-  Future registerWithEmailAndPassword(String email, String password, BuildContext context, String name) async{
+  Future registerWithEmailAndPassword(String email, String password, BuildContext context) async{
     try {
       UserCredential result = await auth.createUserWithEmailAndPassword(email: email, password: password);
       User user = result.user!;
-      await setUserData(email, name, user.uid);
+      await setUserData(email, user.uid);
       await user.sendEmailVerification();
       return _userFromFirebaseUser(user);
     } catch(e) {

@@ -4,12 +4,12 @@ import 'package:nom_order/authentication/user.dart';
 import 'package:nom_order/pages/home/home_page.dart';
 import 'package:provider/provider.dart';
 import '../data/dimensions.dart';
-import '../data/runtime_manager.dart';
+import '../controller/controller.dart';
 import '../pages/register/register.dart';
 
 class Wrapper extends StatelessWidget {
-  final RuntimeManager runtimeData;
-  const Wrapper({super.key, required this.runtimeData});
+  final Controller controllerInstance;
+  const Wrapper({super.key, required this.controllerInstance});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,9 @@ class Wrapper extends StatelessWidget {
     width = MediaQuery.of(context).size.width - MediaQuery.of(context).padding.left - MediaQuery.of(context).padding.right;
     height = MediaQuery.of(context).size.height;
     if (user != null) {
-      return HomePage();
+      return HomePage(controllerInstance: controllerInstance,);
     } else {
-      return Register();
+      return Register(controllerInstance: controllerInstance);
     }
   }
 }

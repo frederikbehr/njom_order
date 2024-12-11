@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../controller/controller.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final Controller controllerInstance;
+  const HomePage({super.key, required this.controllerInstance});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  Color appBarColor = Colors.blue.shade700;
-  Color backgroundColor = Colors.white;
-
 
   @override
   void initState() {
@@ -21,11 +22,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: widget.controllerInstance.themeSetting.background,
       appBar: AppBar(
-        backgroundColor: appBarColor,
+        backgroundColor: widget.controllerInstance.themeSetting.primaryColor,
         title: Text(
-          "Bestilling",
+          AppLocalizations.of(context)!.ordering,
           style: TextStyle(
             color: Colors.white,
             fontSize: 20,
