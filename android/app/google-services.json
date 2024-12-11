@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "414054642740",
+    "project_id": "njomorder",
+    "storage_bucket": "njomorder.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414054642740:android:3828b84545e3884b498661",
+        "android_client_info": {
+          "package_name": "com.wordoss.nom_order"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmG8hatNusA4GBz-PjITz0MfpNY8QPK0Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

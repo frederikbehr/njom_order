@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nom_order/data/theme_setting.dart';
+import 'package:nom_order/models/theme/theme_setting.dart';
 
 import 'buttons/custom_button.dart';
 

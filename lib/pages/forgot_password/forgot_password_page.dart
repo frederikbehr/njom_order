@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:nom_order/data/theme_setting.dart';
+import 'package:nom_order/models/theme/theme_setting.dart';
 import 'dart:io' show Platform;
 
 import '../../authentication/auth_service.dart';

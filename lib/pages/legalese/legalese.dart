@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nom_order/widgets/custom_appbar.dart';
 import 'dart:io' show Platform;
 
-import '../../data/theme_setting.dart';
+import '../../models/theme/theme_setting.dart';
 
 class Legalese extends StatelessWidget {
   final ThemeSetting themeSetting;

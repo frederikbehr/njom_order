@@ -4,7 +4,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../data/theme_setting.dart';
+import '../../models/theme/theme_setting.dart';
 
 
 enum SignInOption {

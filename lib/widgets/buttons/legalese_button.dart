@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../data/dimensions.dart';
-import '../../data/theme_setting.dart';
+import '../../models/theme/theme_setting.dart';
 import '../../pages/legalese/legalese.dart';
 
 
