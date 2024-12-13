@@ -46,7 +46,7 @@ class CategoryCard extends StatelessWidget {
                 const SizedBox(width: 12),
                 CustomIconButton(
                   themeSetting: themeSetting,
-                  onPressed: () => onEdit(),
+                  onPressed: () => onDelete(),
                   icon: Icons.delete_outlined,
                 ),
               ],

@@ -304,7 +304,51 @@
   "@add_category" : {
     "description" : "for admin page"
   },
-  "add_category_description" : "Enter the title of the category below.",
+  "add_category_description" : "Enter the category title below.",
+  "@add_category_description" : {
+    "description" : "for admin page"
+  },
+  "add_item_description" : "Enter the title of the category below.",
+  "@add_item_description" : {
+    "description" : "for admin page"
+  },
+  "item_description" : "Item description",
+  "@item_description" : {
+    "description" : "for admin page"
+  },
+  "item_description_example" : "A slightly seasoned...",
+  "@item_description_example" : {
+    "description" : "for admin page"
+  },
+  "title" : "Title",
+  "@title" : {
+    "description" : "for menu adding dialog"
+  },
+  "price" : "Price",
+  "@price" : {
+    "description" : "for admin page"
+  },
+  "image" : "Picture",
+  "@image" : {
+    "description" : "for menu adding dialog"
+  },
+  "title_description" : "Write the title for the dish.",
+  "@title_description" : {
+    "description" : "for menu adding dialog"
+  },
+  "price_description" : "Choose a price for the dish.",
+  "@price_description" : {
+    "description" : "for admin page"
+  },
+  "price_example" : "89",
+  "@price_example" : {
+    "description" : "for admin page"
+  },
+  "image_description" : "Select a picture of the dish.",
+  "@image_description" : {
+    "description" : "for menu adding dialog"
+  },
+  "add_item_description" : "Enter the item title below.",
   "@add_category_description" : {
     "description" : "for admin page"
   },
@@ -312,16 +356,34 @@
   "@add_category_hint" : {
     "description" : "for menu adding dialog"
   },
+  "category" : "Category",
+  "@category" : {
+    "description" : "for menu adding dialog"
+  },
+  "category_description" : "Select a category below.",
+  "@category_description" : {
+    "description" : "for menu adding dialog"
+  },
   "add" : "Add",
   "@add" : {
     "description" : "for admin page"
   },
-  "close" : "Close",
-  "@close" : {
+  "cancel" : "Cancel",
+  "@cancel" : {
     "description" : "for admin page"
   },
   "no_categories" : "We could not find any categories",
   "@no_categories" : {
     "description" : "for admin page"
+  },
+  "x_was_deleted" : "{x} was deleted",
+  "@x_was_deleted" : {
+    "description" : "for menu editing page",
+    "placeholders" : {
+      "x" : {
+        "type" : "String"
+      }
+    }
   }
+
 }

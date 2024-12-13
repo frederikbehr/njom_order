@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:nom_order/models/theme/theme_setting.dart';
+import 'package:nom_order/widgets/custom_appbar.dart';
 
 import '../buttons/custom_button.dart';
 
@@ -91,14 +92,24 @@ class DialogTemplates {
       context: context,
       barrierColor: Colors.black12,
       barrierDismissible: true,
-      builder: (BuildContext context) => child,
+      builder: (BuildContext context) => SingleChildScrollView(child: child),
     );
+  }
+
+  void fullPageDialog(BuildContext context, Widget child, String title) {
+    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+      return Scaffold(
+        backgroundColor: themeSetting.background,
+        appBar: CustomAppBar(title: title, bottomBorder: false, themeSetting: themeSetting, leadingButton: true),
+        body: child,
+      );
+    }));
   }
 
   void showScaffoldMessage(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        backgroundColor: themeSetting.dialog,
+        backgroundColor: themeSetting.secondary,
         content: Center(
           child: Text(
             message,

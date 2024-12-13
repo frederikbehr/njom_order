@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nom_order/data/dimensions.dart';
 import 'package:nom_order/db/menu/menu_db.dart';
 import 'package:nom_order/pages/home/admin/edit_menu/add_category_page.dart';
+import 'package:nom_order/pages/home/admin/edit_menu/add_item_page.dart';
 import 'package:nom_order/pages/home/admin/edit_menu/edit_category_menu.dart';
 import 'package:nom_order/widgets/buttons/icon_text_button.dart';
 import 'package:nom_order/widgets/custom_appbar.dart';
@@ -23,15 +24,28 @@ class _EditMenuPageState extends State<EditMenuPage> {
   late final DialogTemplates dialogTemplates = DialogTemplates(themeSetting: widget.controller.themeSetting);
   late final MenuDB menuDB = MenuDB(widget.controller.firebase, widget.controller.getUID()!);
 
-  void openAddItemMenu() {}
-
-  void openAddCategoryMenu() {
-    dialogTemplates.openDialog(
+  void openAddItemMenu() {
+    dialogTemplates.fullPageDialog(
       context,
-      AddCategoryPage(
+      AddItemPage(
         themeSetting: widget.controller.themeSetting,
         onAdded: () => setState(() {}),
       ),
+      AppLocalizations.of(context)!.add_item,
+    );
+  }
+
+  void openAddCategoryMenu() {
+    dialogTemplates.fullPageDialog(
+      context,
+      AddCategoryPage(
+        themeSetting: widget.controller.themeSetting,
+        onAdded: (val) async {
+          await menuDB.addCategory(val);
+          setState(() {});
+        },
+      ),
+      AppLocalizations.of(context)!.add_category,
     );
   }
 
@@ -45,6 +59,7 @@ class _EditMenuPageState extends State<EditMenuPage> {
         themeSetting: widget.controller.themeSetting,
         leadingButton: true,
       ),
+      resizeToAvoidBottomInset: true,
       body: SizedBox(
         height: height - 60,
         child: Stack(
@@ -58,6 +73,7 @@ class _EditMenuPageState extends State<EditMenuPage> {
                     title: AppLocalizations.of(context)!.categories,
                     themeSetting: widget.controller.themeSetting,
                     menuDB: menuDB,
+                    dialogTemplates: dialogTemplates,
                   ),
                   MenuSection(
                     title: AppLocalizations.of(context)!.items,
