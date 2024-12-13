@@ -39,7 +39,7 @@
   "@staff" : {
     "description" : "title at home page"
   },
-  "password_not_match" : "Passwords do not match",
+  "password_not_match" : "Password do not match",
   "@password_not_match" : {
     "description" : "for login page"
   },

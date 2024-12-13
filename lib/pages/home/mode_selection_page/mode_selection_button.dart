@@ -25,13 +25,9 @@ class ModeSelectionButton extends StatelessWidget {
       maxHeight: 200,
       onPressed: () => onPressed(deviceMode),
       borderRadius: BorderRadius.circular(themeSetting.borderRadiusValue),
-      backgroundColor: isSelected? themeSetting.secondary : themeSetting.dialog,
+      backgroundColor: isSelected? themeSetting.secondary : themeSetting.shadow,
       shapeBorder: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(themeSetting.borderRadiusValue),
-        side: isSelected? BorderSide(
-          color: themeSetting.shadow,
-          width: 3,
-        ) : const BorderSide(color: Colors.transparent),
       ),
       child: SizedBox(
         width: width / 3,
@@ -41,13 +37,13 @@ class ModeSelectionButton extends StatelessWidget {
             Icon(
               deviceMode == DeviceMode.ordering? Icons.people_outline_rounded : Icons.soup_kitchen_outlined,
               size: 80,
-              color: isSelected? themeSetting.bodyOnColor : themeSetting.shadow,
+              color: isSelected? themeSetting.bodyOnBackground : themeSetting.shadow,
             ),
             const SizedBox(height: 12),
             Text(
               deviceMode == DeviceMode.admin? AppLocalizations.of(context)!.staff : AppLocalizations.of(context)!.customers,
               style: TextStyle(
-                color: isSelected? themeSetting.titleOnColor : themeSetting.bodyOnBackground,
+                color: isSelected? themeSetting.bodyOnBackground : themeSetting.bodyOnBackground,
                 fontWeight: FontWeight.bold,
                 fontSize: 22,
               ),

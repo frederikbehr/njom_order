@@ -151,8 +151,10 @@ class _ModeSelectionPageState extends State<ModeSelectionPage> {
                       CustomIconTextButton(
                         themeSetting: widget.themeSetting,
                         onPressed: () => submit(),
+                        reverse: true,
                         text: AppLocalizations.of(context)!.finish,
                         icon: Icons.check,
+                        addPadding: true,
                       ),
                     ],
                   ),

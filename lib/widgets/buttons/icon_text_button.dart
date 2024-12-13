@@ -9,6 +9,8 @@ class CustomIconTextButton extends StatelessWidget {
   final double? fontSize;
   final EdgeInsets? padding;
   final IconData icon;
+  final bool? reverse;
+  final bool? addPadding;
   const CustomIconTextButton({
     super.key,
     required this.themeSetting,
@@ -17,6 +19,8 @@ class CustomIconTextButton extends StatelessWidget {
     this.fontSize,
     this.padding,
     required this.icon,
+    this.reverse,
+    this.addPadding,
   });
 
   @override
@@ -32,6 +36,7 @@ class CustomIconTextButton extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 12),
           child: Row(
+            textDirection: reverse == null || reverse == false? TextDirection.ltr : TextDirection.rtl,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Icon(
@@ -48,6 +53,11 @@ class CustomIconTextButton extends StatelessWidget {
                   fontSize: fontSize ?? 18,
                   height: 1.5
                 ),
+              ),
+              Icon(
+                icon,
+                size: addPadding != null || addPadding == true? 36 : 1,
+                color: Colors.transparent,
               ),
             ],
           ),
