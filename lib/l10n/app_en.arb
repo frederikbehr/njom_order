@@ -248,7 +248,7 @@
   "@support" : {
     "description" : "for admin page"
   },
-  "contact_me_at" : "For support, call +45 40 38 49 32",
+  "contact_me_at" : "+45 40 38 49 32 / frederikbehrens90@gmail.com",
   "@contact_me_at" : {
     "description" : "for admin page"
   },
@@ -282,6 +282,26 @@
   },
   "settings" : "Settings",
   "@settings" : {
+    "description" : "for admin page"
+  },
+  "theme" : "Theme",
+  "@theme" : {
+    "description" : "for admin page"
+  },
+  "categories" : "Categories",
+  "@categories" : {
+    "description" : "for admin page"
+  },
+  "items" : "Items",
+  "@items" : {
+    "description" : "for admin page"
+  },
+  "add_item" : "Add Item",
+  "@add_item" : {
+    "description" : "for admin page"
+  },
+  "add_category" : "Add category",
+  "@add_category" : {
     "description" : "for admin page"
   }
 }

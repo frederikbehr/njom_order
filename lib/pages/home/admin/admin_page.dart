@@ -23,6 +23,7 @@ class _AdminPageState extends State<AdminPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: widget.controller.themeSetting.background,
       appBar: CustomAppBar(
         title: AppLocalizations.of(context)!.admin_page,
         bottomBorder: false,

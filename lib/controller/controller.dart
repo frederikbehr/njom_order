@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:nom_order/db/device/device_db.dart';
 import 'package:nom_order/db/users/user_db.dart';
 import '../authentication/auth_service.dart';
-import '../models/device/device_mode.dart';
 import '../models/theme/theme_setting.dart';
 import '../models/device/device_info.dart';
-import '../models/device/device_type.dart';
 import '../models/user/user_data.dart';
 
 class Controller {

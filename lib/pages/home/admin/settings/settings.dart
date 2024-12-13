@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:nom_order/db/local_db.dart';
 import 'package:nom_order/pages/home/admin/settings/settings_item.dart';
-import 'package:nom_order/pages/home/admin/settings/settings_section.dart';
 import 'package:nom_order/widgets/buttons/submit_button.dart';
-import 'package:nom_order/widgets/buttons/subtle_button.dart';
 import 'package:nom_order/widgets/custom_appbar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:nom_order/widgets/dialogs/dialog_templates.dart';
 
 import '../../../../controller/controller.dart';
+import '../../../../widgets/menu/menu_section.dart';
 
 class Settings extends StatefulWidget {
   final Controller controller;
@@ -33,6 +31,7 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: widget.controller.themeSetting.background,
       appBar: CustomAppBar(
         title: AppLocalizations.of(context)!.settings,
         bottomBorder: false,
@@ -44,9 +43,9 @@ class _SettingsState extends State<Settings> {
         child: Column(
           children: [
             const SizedBox(height: 72),
-            SettingsSection(
+            MenuSection(
               title: AppLocalizations.of(context)!.account,
-              settingsItems: [
+              items: [
                 SettingsItem(
                   title: AppLocalizations.of(context)!.change_password,
                   themeSetting: widget.controller.themeSetting,
@@ -73,13 +72,22 @@ class _SettingsState extends State<Settings> {
               themeSetting: widget.controller.themeSetting,
             ),
 
-            const SizedBox(height: 72),
-
-            SettingsSection(
+            MenuSection(
               title: AppLocalizations.of(context)!.app,
-              settingsItems: [
+              items: [
                 SettingsItem(
                   title: AppLocalizations.of(context)!.change_device_mode,
+                  themeSetting: widget.controller.themeSetting,
+                  child: SubmitButton(
+                    fontSize: 16,
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    themeSetting: widget.controller.themeSetting,
+                    onPressed: () => changeDeviceMode(),
+                    text: AppLocalizations.of(context)!.change,
+                  ),
+                ),
+                SettingsItem(
+                  title: AppLocalizations.of(context)!.theme,
                   themeSetting: widget.controller.themeSetting,
                   child: SubmitButton(
                     fontSize: 16,
