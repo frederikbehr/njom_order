@@ -51,7 +51,7 @@
   "@password_recovery" : {
      "description" : "for login page"
   },
-  "continue_with_email" : "Continue with email",
+  "continue_with_email" : "Continue",
   "@continue_with_email" : {
      "description" : "for login page"
   },
@@ -100,7 +100,7 @@
   "@close" : {
     "description" : ""
   },
-  "title" : "Nyom Order",
+  "title" : "Njom Order",
   "@title" : {
      "description" : "for login"
   },
@@ -120,7 +120,7 @@
   "@one_more_thing" : {
      "description" : "for login page"
   },
-  "fill_in_credentials" : "Fill in your email and password",
+  "fill_in_credentials" : "Fill in your email and password to sign in or register",
   "@fill_in_credentials" : {
      "description" : "for login page"
   },
@@ -167,5 +167,9 @@
   "send" : "Send",
   "@send" : {
     "description" : "for login page"
+  },
+  "error" : "An error occurred",
+  "@error" : {
+    "description" : "for errors"
   }
 }

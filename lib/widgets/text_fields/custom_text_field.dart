@@ -56,12 +56,12 @@ class CustomTextField extends StatelessWidget {
         maxLines: maxLines ?? 1,
         autofocus: autoFocus,
         keyboardType: textInputType,
-        style: TextStyle(color: themeSetting.textTitle, fontSize: 18, height: 1),
+        style: TextStyle(color: themeSetting.titleOnBackground, fontSize: 18, height: 1),
         textCapitalization: TextCapitalization.none,
         keyboardAppearance: Brightness.light,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: themeSetting.textTitle.withOpacity(0.1), width: 1.5),
+            borderSide: BorderSide(color: themeSetting.titleOnBackground.withOpacity(0.1), width: 1.5),
             borderRadius: borderRadius,
           ),
           focusedBorder: OutlineInputBorder(
@@ -77,7 +77,7 @@ class CustomTextField extends StatelessWidget {
             borderRadius: borderRadius,
           ),
           hintText: hintText,
-          hintStyle: TextStyle(color: themeSetting.textTitle.withOpacity(0.38), fontSize: 16, height: 1),
+          hintStyle: TextStyle(color: themeSetting.titleOnBackground.withOpacity(0.38), fontSize: 16, height: 1),
           errorStyle: const TextStyle(color: Colors.red, fontSize: 15, height: 1),
           contentPadding: const EdgeInsets.symmetric(horizontal: 18.0),
           prefixIcon: prefixWidget,

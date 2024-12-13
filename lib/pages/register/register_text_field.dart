@@ -50,7 +50,7 @@ class RegisterTextField extends StatelessWidget {
         maxLines: maxLines ?? 1,
         autofocus: autoFocus,
         keyboardType: textInputType,
-        style: TextStyle(color: themeSetting.textTitle, fontSize: 18, height: 1),
+        style: TextStyle(color: themeSetting.titleOnBackground, fontSize: 18, height: 1),
         textCapitalization: TextCapitalization.none,
         keyboardAppearance: Brightness.light,
         decoration: InputDecoration(
@@ -71,7 +71,7 @@ class RegisterTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(100.0),
           ),
           hintText: hintText,
-          hintStyle: TextStyle(color: themeSetting.textTitle.withOpacity(0.2), fontSize: 16, height: 1),
+          hintStyle: TextStyle(color: themeSetting.titleOnBackground.withOpacity(0.2), fontSize: 16, height: 1),
           errorStyle: const TextStyle(color: Colors.red, fontSize: 15, height: 1),
           contentPadding: const EdgeInsets.symmetric(horizontal: 24.0),
         ),

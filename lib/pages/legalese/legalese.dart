@@ -20,7 +20,7 @@ class Legalese extends StatelessWidget {
           child: Text(
             legalese,
             style: TextStyle(
-              color: themeSetting.textBody,
+              color: themeSetting.bodyOnBackground,
               fontSize: 16,
             ),
             textAlign: TextAlign.left,

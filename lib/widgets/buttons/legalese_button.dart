@@ -32,7 +32,7 @@ class LegaleseButton extends StatelessWidget {
                 children: <TextSpan>[
                   TextSpan(
                     text: AppLocalizations.of(context)!.by_signing_up1,
-                    style: TextStyle(color: themeSetting.textTitle),
+                    style: TextStyle(color: themeSetting.titleOnBackground),
                   ),
                   TextSpan(
                     text: " ${AppLocalizations.of(context)!.terms_of_service}",
@@ -43,7 +43,7 @@ class LegaleseButton extends StatelessWidget {
                   ),
                   TextSpan(
                     text: " ${AppLocalizations.of(context)!.by_signing_up2} ",
-                    style: TextStyle(color: themeSetting.textTitle),
+                    style: TextStyle(color: themeSetting.titleOnBackground),
                   ),
                   TextSpan(
                     text: AppLocalizations.of(context)!.privacy_policy,

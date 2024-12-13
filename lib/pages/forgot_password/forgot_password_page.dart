@@ -61,7 +61,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         height: 1.2,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: widget.themeSetting.textTitle,
+                        color: widget.themeSetting.titleOnBackground,
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -70,7 +70,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       style: TextStyle(
                         height: 1.2,
                         fontSize: 14,
-                        color: widget.themeSetting.textBody,
+                        color: widget.themeSetting.bodyOnBackground,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -92,7 +92,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               height: 1.2,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: widget.themeSetting.textTitle,
+                              color: widget.themeSetting.titleOnBackground,
                             ),
                           ),
                         ),
@@ -127,7 +127,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               child: Icon(
                 Platform.isIOS? Icons.arrow_back_ios : Icons.arrow_back_rounded,
                 size: 30,
-                color: widget.themeSetting.textTitle,
+                color: widget.themeSetting.titleOnBackground,
               ),
             ),
           ),
@@ -148,7 +148,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                   height: 1.3,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: widget.themeSetting.textTitle,
+                  color: widget.themeSetting.titleOnBackground,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -158,7 +158,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 style: TextStyle(
                   height: 1.3,
                   fontSize: 15,
-                  color: widget.themeSetting.textBody,
+                  color: widget.themeSetting.bodyOnBackground,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -181,7 +181,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               const SizedBox(height: 24),
               Material(
                 borderRadius: BorderRadius.circular(100),
-                color: widget.themeSetting.dialog,
+                color: widget.themeSetting.primaryColor,
                 child: InkWell(
                   borderRadius: BorderRadius.circular(100),
                   onTap: () => submitForgotPassword(),
@@ -192,7 +192,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       style: TextStyle(
                         height: 1.12,
                         fontSize: 17,
-                        color: widget.themeSetting.textTitle,
+                        color: widget.themeSetting.titleOnColor,
                         fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,

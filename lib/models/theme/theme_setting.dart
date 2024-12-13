@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ThemeSetting {
-  final Color primaryColor = Colors.blue.shade700;
-  final Color secondary = Colors.blue.shade900;
+  final Color primaryColor = Colors.blue.shade900;
+  final Color secondary = const Color(0xffA1670D);
   final Color background = const Color(0xffededed);
   final Color dialog = const Color(0xffeeeeee);
-  final Color textAppBar = Colors.white;
-  final Color textTitle = Colors.black;
-  final Color textBody = Colors.black54;
+  final Color titleOnColor = Colors.white;
+  final Color titleOnBackground = Colors.black;
+  final Color bodyOnBackground = Colors.black54;
 }

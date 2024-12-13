@@ -67,7 +67,7 @@ class SignInOptionButton extends StatelessWidget {
           child: SizedBox(
             height: 56,
             child: buttonIsLoading != null && buttonIsLoading == true? SpinKitRing(
-              color: themeSetting.textTitle,
+              color: themeSetting.titleOnBackground,
               size: 30,
             ) : Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -83,7 +83,7 @@ class SignInOptionButton extends StatelessWidget {
                 Text(
                   !isFilled()? AppLocalizations.of(context)!.sign_in_with_x(getButtonText(context)) : AppLocalizations.of(context)!.continue_with_email,
                   style: TextStyle(
-                    color: themeSetting.textBody,
+                    color: themeSetting.bodyOnBackground,
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                     height: 1,

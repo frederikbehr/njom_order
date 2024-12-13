@@ -51,7 +51,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           padding: const EdgeInsets.all(12.0),
           child: Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: themeSetting.textBody,
+            color: themeSetting.bodyOnBackground,
             size: 26,
           ),
         ),
@@ -59,7 +59,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: titleReplacement ?? Text(
         title,
         style: TextStyle(
-          color: themeSetting.textAppBar,
+          color: themeSetting.titleOnColor,
           fontWeight: FontWeight.bold,
           fontSize: 17,
           height: 1,
