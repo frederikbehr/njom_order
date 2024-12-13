@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:nom_order/models/theme/theme_setting.dart';
 import 'package:nom_order/widgets/buttons/custom_button.dart';
 
-class Subtle_button extends StatelessWidget {
+class SubtleButton extends StatelessWidget {
   final ThemeSetting themeSetting;
   final VoidCallback onPressed;
   final String text;
   final double? fontSize;
   final EdgeInsets? padding;
-  const Subtle_button({
+  const SubtleButton({
     super.key,
     required this.themeSetting,
     required this.onPressed,

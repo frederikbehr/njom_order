@@ -276,6 +276,10 @@
   "@device" : {
     "description" : "for admin page"
   },
+  "change" : "Change",
+  "@change" : {
+    "description" : "for admin page"
+  },
   "settings" : "Settings",
   "@settings" : {
     "description" : "for admin page"

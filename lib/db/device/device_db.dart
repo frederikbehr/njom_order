@@ -14,6 +14,8 @@ class DeviceDB {
     return DeviceInfoFactory.stringToDeviceInfo(data);
   }
 
+  Future removeDeviceInfo() async => _localDB.removeKey(_localDBDeviceLocation);
+
   Future saveDeviceInfo(DeviceInfo deviceInfo) async {
     await _localDB.setString(_localDBDeviceLocation, deviceInfo.toString());
   }

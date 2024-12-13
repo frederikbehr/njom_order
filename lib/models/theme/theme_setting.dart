@@ -7,7 +7,7 @@ class ThemeSetting {
   final Color accent = const Color(0xffEE964B);
 
   //Fills
-  final Color background = const Color(0xffededed);
+  final Color background = const Color(0xffeeeeee);
   final Color dialog = const Color(0xffeeeeee);
 
   //Text

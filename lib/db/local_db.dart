@@ -34,4 +34,6 @@ class LocalDB {
     }
   }
 
+  Future removeKey(String key) async => await _instance!.remove(key);
+
 }

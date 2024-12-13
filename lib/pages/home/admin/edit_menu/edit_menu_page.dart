@@ -22,6 +22,14 @@ class _EditMenuPageState extends State<EditMenuPage> {
         themeSetting: widget.controller.themeSetting,
         leadingButton: true,
       ),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: [
+
+          ],
+        ),
+      ),
     );
   }
 }
