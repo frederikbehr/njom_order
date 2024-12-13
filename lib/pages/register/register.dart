@@ -42,9 +42,6 @@ class _RegisterState extends State<Register> {
   final FocusNode passwordFocusNode = FocusNode();
   bool buttonIsLoading = false;
 
-  //controllers
-  final PageController pageController = PageController(initialPage: 0);
-
   String? validateEmail(String? email) {
     if (email != null) {
       final bool containsAt = email.contains("@");
@@ -87,75 +84,9 @@ class _RegisterState extends State<Register> {
       } catch(e) {
         setState(() => buttonIsLoading = false);
         dialogTemplates.showErrorDialog(context, e as Exception);
-        //showErrorDialog(signInError);
       }
       setState(() => buttonIsLoading = false);
     }
-  }
-
-  void showErrorDialog(FirebaseAuthException error) {
-    showAdaptiveDialog(
-        context: context,
-        barrierDismissible: true,
-        builder: (BuildContext context) {
-          return Dialog(
-            backgroundColor: widget.controllerInstance.themeSetting.dialog,
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      AppLocalizations.of(context)!.something_went_wrong,
-                      style: TextStyle(
-                        height: 1.2,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: widget.controllerInstance.themeSetting.titleOnBackground,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 16),
-                    Text(
-                      error.message.toString().trim(),
-                      style: TextStyle(
-                        height: 1.2,
-                        fontSize: 14,
-                        color: widget.controllerInstance.themeSetting.bodyOnBackground,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 24),
-                    Material(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.black,
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(100),
-                        onTap: () {
-                          HapticFeedback.lightImpact();
-                          Navigator.pop(context);
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                          child: Text(
-                            AppLocalizations.of(context)!.close,
-                            style: TextStyle(
-                              height: 1.2,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: widget.controllerInstance.themeSetting.titleOnBackground,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          );
-        });
   }
 
   @override
