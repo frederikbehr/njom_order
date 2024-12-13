@@ -8,10 +8,12 @@ import 'package:nom_order/widgets/text_fields/custom_text_field.dart';
 
 class AddCategoryPage extends StatelessWidget {
   final ThemeSetting themeSetting;
+  final VoidCallback onAdded;
 
   const AddCategoryPage({
     super.key,
     required this.themeSetting,
+    required this.onAdded,
   });
 
   @override

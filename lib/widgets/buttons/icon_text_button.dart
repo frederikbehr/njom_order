@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:nom_order/models/theme/theme_setting.dart';
 import 'package:nom_order/widgets/buttons/custom_button.dart';
 
-class CustomIconButton extends StatelessWidget {
+class CustomIconTextButton extends StatelessWidget {
   final ThemeSetting themeSetting;
   final VoidCallback onPressed;
+  final String text;
   final double? fontSize;
   final EdgeInsets? padding;
   final IconData icon;
-  const CustomIconButton({
+  const CustomIconTextButton({
     super.key,
     required this.themeSetting,
     required this.onPressed,
+    required this.text,
     this.fontSize,
     this.padding,
     required this.icon,
@@ -28,11 +30,26 @@ class CustomIconButton extends StatelessWidget {
         ),
         backgroundColor: themeSetting.accent,
         child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Icon(
-            icon,
-            size: 24,
-            color: themeSetting.bodyOnColor,
+          padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 12),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Icon(
+                icon,
+                size: 36,
+                color: themeSetting.bodyOnColor,
+              ),
+              const SizedBox(width: 12),
+              Text(
+                text,
+                style: TextStyle(
+                  color: themeSetting.titleOnColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: fontSize ?? 18,
+                  height: 1.5
+                ),
+              ),
+            ],
           ),
         ),
       ),

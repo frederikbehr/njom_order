@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nom_order/data/dimensions.dart';
+import 'package:nom_order/db/menu/menu_db.dart';
 import 'package:nom_order/pages/home/admin/edit_menu/add_category_page.dart';
-import 'package:nom_order/widgets/buttons/icon_button.dart';
+import 'package:nom_order/pages/home/admin/edit_menu/edit_category_menu.dart';
+import 'package:nom_order/widgets/buttons/icon_text_button.dart';
 import 'package:nom_order/widgets/custom_appbar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:nom_order/widgets/dialogs/dialog_templates.dart';
@@ -19,13 +21,17 @@ class EditMenuPage extends StatefulWidget {
 
 class _EditMenuPageState extends State<EditMenuPage> {
   late final DialogTemplates dialogTemplates = DialogTemplates(themeSetting: widget.controller.themeSetting);
+  late final MenuDB menuDB = MenuDB(widget.controller.firebase, widget.controller.getUID()!);
 
   void openAddItemMenu() {}
 
   void openAddCategoryMenu() {
     dialogTemplates.openDialog(
       context,
-      AddCategoryPage(themeSetting: widget.controller.themeSetting),
+      AddCategoryPage(
+        themeSetting: widget.controller.themeSetting,
+        onAdded: () => setState(() {}),
+      ),
     );
   }
 
@@ -48,10 +54,10 @@ class _EditMenuPageState extends State<EditMenuPage> {
               child: Column(
                 children: [
                   const SizedBox(height: 72),
-                  MenuSection(
+                  EditCategoryMenu(
                     title: AppLocalizations.of(context)!.categories,
-                    items: [],
                     themeSetting: widget.controller.themeSetting,
+                    menuDB: menuDB,
                   ),
                   MenuSection(
                     title: AppLocalizations.of(context)!.items,
@@ -68,14 +74,14 @@ class _EditMenuPageState extends State<EditMenuPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  CustomIconButton(
+                  CustomIconTextButton(
                     themeSetting: widget.controller.themeSetting,
                     onPressed: () => openAddItemMenu(),
                     text: AppLocalizations.of(context)!.add_item,
                     icon: Icons.fastfood_outlined,
                   ),
                   const SizedBox(height: 16),
-                  CustomIconButton(
+                  CustomIconTextButton(
                     themeSetting: widget.controller.themeSetting,
                     onPressed: () => openAddCategoryMenu(),
                     text: AppLocalizations.of(context)!.add_category,

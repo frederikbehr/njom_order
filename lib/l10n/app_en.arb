@@ -319,5 +319,9 @@
   "close" : "Close",
   "@close" : {
     "description" : "for admin page"
+  },
+  "no_categories" : "We could not find any categories",
+  "@no_categories" : {
+    "description" : "for admin page"
   }
 }

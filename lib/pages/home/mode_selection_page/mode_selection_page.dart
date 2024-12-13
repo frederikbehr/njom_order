@@ -4,7 +4,7 @@ import 'package:nom_order/models/device/device_info.dart';
 import 'package:nom_order/models/theme/theme_setting.dart';
 import 'package:nom_order/pages/home/mode_selection_page/mode_selection_button.dart';
 import 'package:nom_order/pages/home/mode_selection_page/table_id_text_field.dart';
-import 'package:nom_order/widgets/buttons/icon_button.dart';
+import 'package:nom_order/widgets/buttons/icon_text_button.dart';
 import 'package:nom_order/widgets/buttons/submit_button.dart';
 import 'package:nom_order/widgets/custom_appbar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -148,7 +148,7 @@ class _ModeSelectionPageState extends State<ModeSelectionPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CustomIconButton(
+                      CustomIconTextButton(
                         themeSetting: widget.themeSetting,
                         onPressed: () => submit(),
                         text: AppLocalizations.of(context)!.finish,

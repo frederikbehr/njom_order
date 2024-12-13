@@ -65,7 +65,12 @@ class DialogTemplates {
                           ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12),
-                            child: _getTitle(AppLocalizations.of(context)!.close),
+                            child: Text(AppLocalizations.of(context)!.close, textAlign: TextAlign.center, style: TextStyle(
+                              height: 1.2,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: themeSetting.titleOnColor,
+                            )),
                           ),
                         ),
                         const SizedBox(height: 24),

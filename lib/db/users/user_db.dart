@@ -14,9 +14,6 @@ class UserDB {
     _user = _users.doc(uid);
   }
 
-  @override
-  String toString() => "$_firebase::$uid::$_users::$_user";
-
   Future<bool> _userDocumentExists() async {
     try {
       DocumentSnapshot documentSnapshot = await _user.get();
@@ -48,6 +45,7 @@ class UserDB {
         uid: uid,
         name: doc.get("name"),
         email: doc.get("email"),
+        categories: (doc.get("categories") as List<dynamic>).map((item) => item as String).toList(),
       );
       return userData;
     } catch(e) {
@@ -112,6 +110,7 @@ class UserDB {
       'lastLogin' : DateTime.now(),
       'email' : "email",
       'newUser' : true,
+      'categories' : [],
     });
   }
 
