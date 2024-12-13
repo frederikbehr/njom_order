@@ -2,14 +2,12 @@
 class UserData {
   final String uid;
   String name;
-  bool isNewUser;
   String email;
 
 
   UserData({
     required this.uid,
     required this.name,
-    required this.isNewUser,
     required this.email,
   });
 
@@ -23,6 +21,6 @@ class UserData {
   }
 
   @override
-  String toString() => "$uid::$name::$isNewUser::$email";
+  String toString() => "$uid::$name::$email";
 
 }

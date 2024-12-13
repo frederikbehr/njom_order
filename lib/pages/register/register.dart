@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,11 +8,9 @@ import 'package:nom_order/pages/register/sign_in_option_button.dart';
 import 'package:nom_order/widgets/buttons/legalese_button.dart';
 import 'package:nom_order/widgets/custom_appbar.dart';
 import 'package:nom_order/widgets/dialogs/dialog_templates.dart';
-
-import '../../authentication/auth_service.dart';
 import '../../controller/controller.dart';
 import '../../data/dimensions.dart';
-import '../forgot_password/forgot_password_page.dart';
+import 'forgot_password/forgot_password_page.dart';
 
 
 class Register extends StatefulWidget {

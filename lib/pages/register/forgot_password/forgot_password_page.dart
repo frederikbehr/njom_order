@@ -4,9 +4,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:nom_order/models/theme/theme_setting.dart';
 import 'dart:io' show Platform;
 
-import '../../authentication/auth_service.dart';
-import '../../widgets/custom_appbar.dart';
-import '../register/register_text_field.dart';
+import '../../../authentication/auth_service.dart';
+import '../../../widgets/custom_appbar.dart';
+import '../register_text_field.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   final String assumedEmail;

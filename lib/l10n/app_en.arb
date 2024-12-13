@@ -3,6 +3,42 @@
   "@ordering" : {
     "description" : "title at home page"
   },
+  "admin_page" : "Administrator page",
+  "@admin_page" : {
+    "description" : "title at home page"
+  },
+  "mode_selection_title" : "Device mode selection",
+  "@mode_selection_title" : {
+    "description" : "title at home page"
+  },
+  "mode_selection_description" : "Is the device for customers or staff?",
+  "@mode_selection_description" : {
+    "description" : "title at home page"
+  },
+  "select_a_mode" : "Select a mode for this device",
+  "@select_a_mode" : {
+    "description" : "title at home page"
+  },
+  "table_id_hint" : "eg. table 3",
+  "@table_id_hint" : {
+    "description" : "title at home page"
+  },
+  "table_id" : "Associated table",
+  "@table_id" : {
+    "description" : "title at home page"
+  },
+  "finish" : "Finish",
+  "@finish" : {
+    "description" : "title at home page"
+  },
+  "customers" : "Customers",
+  "@customers" : {
+    "description" : "title at home page"
+  },
+  "staff" : "Staff",
+  "@staff" : {
+    "description" : "title at home page"
+  },
   "password_not_match" : "Passwords do not match",
   "@password_not_match" : {
     "description" : "for login page"
@@ -171,5 +207,17 @@
   "error" : "An error occurred",
   "@error" : {
     "description" : "for errors"
+  },
+  "need_help" : "Need a waiter?",
+  "@need_help" : {
+    "description" : "for order page"
+  },
+  "call_a_waiter" : "Call one over from here.",
+  "@call_a_waiter" : {
+    "description" : "for order page"
+  },
+  "call" : "Call",
+  "@call" : {
+    "description" : "for order page"
   }
 }

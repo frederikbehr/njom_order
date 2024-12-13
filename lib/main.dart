@@ -10,6 +10,7 @@ import 'l10n/l10n.dart';
 import 'l10n/locales.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 Future<Controller> getControllerInstance() async{
   //Get locale
@@ -29,7 +30,7 @@ void main() async {
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  runApp(App(controllerInstance: await getControllerInstance()));
+  runApp(Phoenix(child: App(controllerInstance: await getControllerInstance())));
 }
 
 class App extends StatelessWidget {

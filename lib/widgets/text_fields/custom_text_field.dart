@@ -18,6 +18,7 @@ class CustomTextField extends StatelessWidget {
   final double? horizontalPadding;
   final Widget? prefixWidget;
   final Color? prefixWidgetColor;
+  final String? initialValue;
   const CustomTextField({
     super.key,
     required this.onChanged,
@@ -35,6 +36,7 @@ class CustomTextField extends StatelessWidget {
     this.horizontalPadding,
     this.prefixWidget,
     this.prefixWidgetColor,
+    this.initialValue,
   });
 
 
@@ -52,6 +54,7 @@ class CustomTextField extends StatelessWidget {
         cursorColor: themeSetting.secondary,
         onChanged: (val) => onChanged(val),
         autocorrect: false,
+        initialValue: initialValue,
         enableSuggestions: true,
         maxLines: maxLines ?? 1,
         autofocus: autoFocus,

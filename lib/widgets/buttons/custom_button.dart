@@ -8,6 +8,7 @@ class CustomButton extends StatelessWidget {
   final ShapeBorder? shapeBorder;
   final BoxDecoration? boxDecoration;
   final Color? splashColor;
+  final double? maxHeight;
   const CustomButton({
     super.key,
     this.backgroundColor,
@@ -17,12 +18,16 @@ class CustomButton extends StatelessWidget {
     this.shapeBorder,
     this.boxDecoration,
     this.splashColor,
+    this.maxHeight,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: boxDecoration,
+    return ConstrainedBox(
+      constraints: maxHeight != null? BoxConstraints(
+        maxWidth: 400,
+        maxHeight: maxHeight?? 400,
+      ) : BoxConstraints.tightFor(),
       child: Material(
         color: backgroundColor?? Colors.transparent,
         shape: shapeBorder,
