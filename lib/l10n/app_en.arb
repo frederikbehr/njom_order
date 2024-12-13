@@ -220,7 +220,7 @@
   "@call" : {
     "description" : "for order page"
   },
-  "filter_by_stage" : "Filter orders by their stage",
+  "filter_by_stage" : "Filter orders by stage",
   "@filter_by_stage" : {
     "description" : "for admin page"
   },
@@ -302,6 +302,22 @@
   },
   "add_category" : "Add category",
   "@add_category" : {
+    "description" : "for admin page"
+  },
+  "add_category_description" : "Enter the title of the category below.",
+  "@add_category_description" : {
+    "description" : "for admin page"
+  },
+  "add_category_hint" : "eg. dessert",
+  "@add_category_hint" : {
+    "description" : "for menu adding dialog"
+  },
+  "add" : "Add",
+  "@add" : {
+    "description" : "for admin page"
+  },
+  "close" : "Close",
+  "@close" : {
     "description" : "for admin page"
   }
 }

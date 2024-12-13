@@ -1,15 +1,10 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import '../../models/user/user_data.dart';
-import '../../models/user/user_factory.dart';
-import '../local_db.dart';
 
 class UserDB {
   final FirebaseFirestore _firebase;
   final String uid;
-  late final LocalDB _localDB;
-  late final String _localDBUserLocation;
 
   late final CollectionReference _users;
   late final DocumentReference _user;
@@ -17,8 +12,6 @@ class UserDB {
   UserDB(this._firebase, this.uid) {
     _users = _firebase.collection("users");
     _user = _users.doc(uid);
-    _localDB = LocalDB();
-    _localDBUserLocation = "user";
   }
 
   @override
@@ -35,7 +28,6 @@ class UserDB {
 
   Future updateUserData(UserData userData) async {
     try {
-      await _localDB.setString("user", userData.toString());
       return await _user.update({
         'name' : userData.name,
         'newUser' : false,
@@ -49,31 +41,14 @@ class UserDB {
     await _user.update({ variableName : value });
   }
 
-  Future<UserData?> getUserDataFromLocalDB() async {
-    try {
-      if (await _localDB.exists(_localDBUserLocation)) {
-        return UserFactory.getUserFromString(await _localDB.get(_localDBUserLocation) as String);
-      }
-      return null;
-    } catch(e) {
-      debugPrint(e.toString());
-      return null;
-    }
-  }
-
-  Future setUserFromLocalDB(UserData user) async => await _localDB.setString(_localDBUserLocation, user.toString());
-
   Future<UserData?> fetchUserData() async {
     try {
-      final UserData? userFromLocalDB = await getUserDataFromLocalDB();
-      if (userFromLocalDB != null) return userFromLocalDB;
       final DocumentSnapshot doc = await _user.get();
       final UserData userData = UserData(
         uid: uid,
         name: doc.get("name"),
         email: doc.get("email"),
       );
-      await setUserFromLocalDB(userData);
       return userData;
     } catch(e) {
       debugPrint(e.toString());
@@ -124,7 +99,6 @@ class UserDB {
 
   Future deleteUserData() async {
     try {
-      await _localDB.deleteEverything();
       await _user.delete();
     } catch(e) {
       debugPrint(e.toString());

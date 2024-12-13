@@ -81,6 +81,15 @@ class DialogTemplates {
     );
   }
 
+  void openDialog(BuildContext context, Widget child) {
+    showDialog(
+      context: context,
+      barrierColor: Colors.black12,
+      barrierDismissible: true,
+      builder: (BuildContext context) => child,
+    );
+  }
+
   void showScaffoldMessage(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

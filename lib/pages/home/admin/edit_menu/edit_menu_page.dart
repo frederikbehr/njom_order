@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:nom_order/data/dimensions.dart';
+import 'package:nom_order/pages/home/admin/edit_menu/add_category_page.dart';
 import 'package:nom_order/widgets/buttons/icon_button.dart';
 import 'package:nom_order/widgets/custom_appbar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:nom_order/widgets/dialogs/dialog_templates.dart';
 import 'package:nom_order/widgets/menu/menu_section.dart';
 
 import '../../../../controller/controller.dart';
@@ -16,6 +18,17 @@ class EditMenuPage extends StatefulWidget {
 }
 
 class _EditMenuPageState extends State<EditMenuPage> {
+  late final DialogTemplates dialogTemplates = DialogTemplates(themeSetting: widget.controller.themeSetting);
+
+  void openAddItemMenu() {}
+
+  void openAddCategoryMenu() {
+    dialogTemplates.openDialog(
+      context,
+      AddCategoryPage(themeSetting: widget.controller.themeSetting),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,14 +70,14 @@ class _EditMenuPageState extends State<EditMenuPage> {
                 children: [
                   CustomIconButton(
                     themeSetting: widget.controller.themeSetting,
-                    onPressed: () {},
+                    onPressed: () => openAddItemMenu(),
                     text: AppLocalizations.of(context)!.add_item,
                     icon: Icons.fastfood_outlined,
                   ),
                   const SizedBox(height: 16),
                   CustomIconButton(
                     themeSetting: widget.controller.themeSetting,
-                    onPressed: () {},
+                    onPressed: () => openAddCategoryMenu(),
                     text: AppLocalizations.of(context)!.add_category,
                     icon: Icons.menu_open_outlined,
                   ),
