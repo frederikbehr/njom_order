@@ -27,7 +27,7 @@ class _HomeWrapperState extends State<HomeWrapper> {
       );
     } else if (widget.controller.deviceInfo!.deviceMode == DeviceMode.admin) {
       // is for staff/admin
-      return AdminPage();
+      return AdminPage(controller: widget.controller);
     } else {
       // is for ordering
       return OrderingPage(controller: widget.controller);

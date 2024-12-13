@@ -3,7 +3,7 @@
   "@ordering" : {
     "description" : "title at home page"
   },
-  "admin_page" : "Administrator page",
+  "admin_page" : "Orders",
   "@admin_page" : {
     "description" : "title at home page"
   },
@@ -219,5 +219,65 @@
   "call" : "Call",
   "@call" : {
     "description" : "for order page"
+  },
+  "filter_by_stage" : "Filter orders by their stage",
+  "@filter_by_stage" : {
+    "description" : "for admin page"
+  },
+  "all" : "All",
+  "@all" : {
+    "description" : "for admin page filter"
+  },
+  "active" : "Active",
+  "@active" : {
+    "description" : "for admin page"
+  },
+  "menu" : "Menu",
+  "@menu" : {
+    "description" : "for admin page"
+  },
+  "edit_menu" : "Edit menu",
+  "@edit_menu" : {
+    "description" : "for admin page"
+  },
+  "system_language" : "System language",
+  "@system_language" : {
+    "description" : "for admin page"
+  },
+  "support" : "Support",
+  "@support" : {
+    "description" : "for admin page"
+  },
+  "contact_me_at" : "For support, call +45 40 38 49 32",
+  "@contact_me_at" : {
+    "description" : "for admin page"
+  },
+  "change_password" : "Change password",
+  "@change_password" : {
+    "description" : "for admin page"
+  },
+  "sign_out" : "Sign out",
+  "@sign_out" : {
+    "description" : "for admin page"
+  },
+  "change_device_mode" : "Change mode",
+  "@change_device_mode" : {
+    "description" : "for admin page"
+  },
+  "app" : "App",
+  "@app" : {
+    "description" : "for admin page"
+  },
+  "account" : "Account",
+  "@account" : {
+    "description" : "for admin page"
+  },
+  "device" : "Device",
+  "@device" : {
+    "description" : "for admin page"
+  },
+  "settings" : "Settings",
+  "@settings" : {
+    "description" : "for admin page"
   }
 }
