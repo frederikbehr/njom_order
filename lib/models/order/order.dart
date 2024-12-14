@@ -1,14 +1,15 @@
+import '../item/item.dart';
 import 'order_stage.dart';
 
 class Order {
   final String id;
-  final List<String> items;
+  final List<Item> items;
   final String tableId;
-  final DateTime timeReceived;
-  final double amountToPay;
-  final OrderStage orderStage;
+  DateTime? timeReceived;
+  double? amountToPay;
+  OrderStage? orderStage;
 
-  const Order({
+  Order({
     required this.id,
     required this.items,
     required this.tableId,
@@ -16,4 +17,13 @@ class Order {
     required this.amountToPay,
     required this.orderStage,
   });
+
+  void addMenuItem(Item item) => items.add(item);
+
+  void reset() {
+    items.clear();
+    timeReceived = null;
+    amountToPay = null;
+    orderStage = null;
+  }
 }

@@ -45,6 +45,7 @@ class _HomePageState extends State<HomePage> {
       if (userData != null) {
         //user data fetched
         updateLoadingStep(2);
+        widget.controllerInstance.setUserData(userData);
         await Future.delayed(const Duration(milliseconds: 120), () {});
         //show ui
         await widget.controllerInstance.setDeviceInfo();

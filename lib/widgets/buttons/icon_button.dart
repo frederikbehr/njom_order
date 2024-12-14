@@ -8,7 +8,7 @@ class CustomIconButton extends StatelessWidget {
   final double? iconSize;
   final EdgeInsets? padding;
   final IconData icon;
-  final Color? background;
+  final Color? backgroundColor;
   final Color? iconColor;
   const CustomIconButton({
     super.key,
@@ -17,7 +17,7 @@ class CustomIconButton extends StatelessWidget {
     this.iconSize,
     this.padding,
     required this.icon,
-    this.background,
+    this.backgroundColor,
     this.iconColor,
   });
 
@@ -30,9 +30,9 @@ class CustomIconButton extends StatelessWidget {
         shapeBorder: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100),
         ),
-        backgroundColor: background ?? themeSetting.accent,
+        backgroundColor: backgroundColor ?? themeSetting.accent,
         child: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: padding ?? const EdgeInsets.all(8),
           child: Icon(
             icon,
             size: iconSize ?? 24,

@@ -16,6 +16,9 @@ class MenuDB {
 
   Stream<QuerySnapshot> getItemStreamReference() => _items.snapshots();
 
+  Stream<QuerySnapshot> getItemsByCategoryStreamReference(String category) =>
+      _items.where('category', isEqualTo: category).snapshots();
+
   Future addCategory(String category) async {
     await _user.update({
       _categoriesDocName : FieldValue.arrayUnion([category]),

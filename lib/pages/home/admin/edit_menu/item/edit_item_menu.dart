@@ -6,6 +6,7 @@ import 'package:nom_order/pages/home/admin/edit_menu/category/category_card.dart
 import 'package:nom_order/pages/home/admin/edit_menu/item/item_card.dart';
 import 'package:nom_order/pages/loading/loading.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:nom_order/storage/storage.dart';
 import 'package:nom_order/widgets/dialogs/dialog_templates.dart';
 
 import '../../../../../db/menu/menu_db.dart';
@@ -31,9 +32,11 @@ class EditItemMenu extends StatefulWidget {
 
 class _EditItemMenuState extends State<EditItemMenu> {
   late final DialogTemplates dialogTemplates = DialogTemplates(themeSetting: widget.themeSetting);
+  late final Storage storage = Storage();
 
   Future deleteItem(Item item) async {
     dialogTemplates.confirmDialog(context, AppLocalizations.of(context)!.delete_x(item.title), () async {
+      if (item.imageURL != null) await storage.deleteImage(item.imageURL!);
       await widget.menuDB.deleteItem(item);
       showMessage(item.title);
       setState(() {});
@@ -78,6 +81,15 @@ class _EditItemMenuState extends State<EditItemMenu> {
                 return const Text("No data");
               } else {
                 final List<Item?> items = snapshot.data!.docs.map((e) => ItemFactory.getItemFromSnapshot(e)).toList();
+                if (items.isEmpty) {
+                  return Text(
+                    AppLocalizations.of(context)!.no_items,
+                    style: TextStyle(
+                      color: widget.themeSetting.bodyOnBackground,
+                      fontSize: 14,
+                    ),
+                  );
+                }
                 items.removeWhere((e) => e == null);
                 items.sort((a,b) => a!.category.compareTo(b!.category));
                 return ListView.builder(

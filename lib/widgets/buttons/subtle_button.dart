@@ -9,6 +9,8 @@ class SubtleButton extends StatelessWidget {
   final double? fontSize;
   final EdgeInsets? padding;
   final bool? onColor;
+  final Color? backgroundColor;
+  final Color? borderColor;
   const SubtleButton({
     super.key,
     required this.themeSetting,
@@ -17,6 +19,8 @@ class SubtleButton extends StatelessWidget {
     this.fontSize,
     this.padding,
     this.onColor,
+    this.backgroundColor,
+    this.borderColor,
   });
 
   @override
@@ -27,9 +31,9 @@ class SubtleButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
         shapeBorder: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100),
-          side: BorderSide(width: 1, color: themeSetting.secondary),
+          side: BorderSide(width: 1.5, color: borderColor ?? themeSetting.secondary),
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: backgroundColor ?? Colors.transparent,
         child: Padding(
           padding: padding ?? const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
           child: Text(

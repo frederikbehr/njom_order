@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/cupertino.dart';
 
 class Storage {
   final FirebaseStorage storage = FirebaseStorage.instance;
@@ -14,4 +15,13 @@ class Storage {
     final url = await snapshot.ref.getDownloadURL();
     return url;
   }
+
+  Future deleteImage(String url) async {
+    try {
+      await storage.refFromURL(url).delete();
+    } catch(e) {
+      debugPrint("Not able to delete a file with following URL: $url\nError: $e");
+    }
+  }
+
 }

@@ -11,6 +11,8 @@ class CustomIconTextButton extends StatelessWidget {
   final IconData icon;
   final bool? reverse;
   final bool? addPadding;
+  final Color? backgroundColor;
+  final Color? iconColor;
   const CustomIconTextButton({
     super.key,
     required this.themeSetting,
@@ -21,6 +23,8 @@ class CustomIconTextButton extends StatelessWidget {
     required this.icon,
     this.reverse,
     this.addPadding,
+    this.backgroundColor,
+    this.iconColor,
   });
 
   @override
@@ -32,17 +36,17 @@ class CustomIconTextButton extends StatelessWidget {
         shapeBorder: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100),
         ),
-        backgroundColor: themeSetting.accent,
+        backgroundColor: backgroundColor ?? themeSetting.accent,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 12),
+          padding: padding?? const EdgeInsets.symmetric(horizontal: 32.0, vertical: 12),
           child: Row(
             textDirection: reverse == null || reverse == false? TextDirection.ltr : TextDirection.rtl,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Icon(
                 icon,
-                size: 36,
-                color: themeSetting.bodyOnColor,
+                size: fontSize != null? fontSize!*1.5 : 36,
+                color: iconColor ?? themeSetting.bodyOnColor,
               ),
               const SizedBox(width: 12),
               Text(
@@ -56,7 +60,7 @@ class CustomIconTextButton extends StatelessWidget {
               ),
               Icon(
                 icon,
-                size: addPadding != null || addPadding == true? 36 : 1,
+                size: addPadding != null || addPadding == true? fontSize != null? fontSize!*1.5 : 1 : 1,
                 color: Colors.transparent,
               ),
             ],

@@ -204,19 +204,27 @@
   "@send" : {
     "description" : "for login page"
   },
+  "order_now" : "Send order",
+  "@order_now" : {
+    "description" : "for login page"
+  },
+  "my_order" : "Cart",
+  "@my_order" : {
+    "description" : "for login page"
+  },
   "error" : "An error occurred",
   "@error" : {
     "description" : "for errors"
   },
-  "need_help" : "Need a waiter?",
+  "need_help" : "Need Service?",
   "@need_help" : {
     "description" : "for order page"
   },
-  "call_a_waiter" : "Call one over from here.",
+  "call_a_waiter" : "Get us to come over",
   "@call_a_waiter" : {
     "description" : "for order page"
   },
-  "call" : "Call personnel",
+  "call" : "Request a waiter",
   "@call" : {
     "description" : "for order page"
   },
@@ -374,6 +382,10 @@
   },
   "no_categories" : "We could not find any categories",
   "@no_categories" : {
+    "description" : "for admin page"
+  },
+  "no_items" : "We could not find any menu items",
+  "@no_items" : {
     "description" : "for admin page"
   },
   "invalid_price" : "Please enter a number",

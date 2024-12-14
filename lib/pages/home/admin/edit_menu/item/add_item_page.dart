@@ -192,7 +192,7 @@ class _AddItemPageState extends State<AddItemPage> {
                       imageSelected == null? const SizedBox() : Row(
                         children: [
                           CustomIconButton(
-                            background: Colors.transparent,
+                            backgroundColor: Colors.transparent,
                             iconColor: widget.themeSetting.shadow,
                             iconSize: 32,
                             themeSetting: widget.themeSetting,

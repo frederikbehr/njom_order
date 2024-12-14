@@ -21,7 +21,7 @@ class _HelpBarState extends State<HelpBar> {
     return Container(
       width: width,
       color: widget.themeSetting.primaryColor,
-      padding: EdgeInsets.fromLTRB(32, 16 + MediaQuery.paddingOf(context).top, 32, 16),
+      padding: EdgeInsets.fromLTRB(32, 16 + MediaQuery.paddingOf(context).top + 12, 44, 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -35,7 +35,7 @@ class _HelpBarState extends State<HelpBar> {
                   color: widget.themeSetting.titleOnColor,
                 ),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: 12),
               Text(
                 AppLocalizations.of(context)!.call_a_waiter,
                 style: TextStyle(
