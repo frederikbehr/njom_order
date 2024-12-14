@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nom_order/data/dimensions.dart';
 import 'package:nom_order/db/menu/menu_db.dart';
-import 'package:nom_order/pages/home/admin/edit_menu/add_category_page.dart';
-import 'package:nom_order/pages/home/admin/edit_menu/add_item_page.dart';
-import 'package:nom_order/pages/home/admin/edit_menu/edit_category_menu.dart';
+import 'package:nom_order/pages/home/admin/edit_menu/category/add_category_page.dart';
+import 'package:nom_order/pages/home/admin/edit_menu/item/add_item_page.dart';
 import 'package:nom_order/widgets/buttons/icon_text_button.dart';
 import 'package:nom_order/widgets/custom_appbar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -11,6 +10,7 @@ import 'package:nom_order/widgets/dialogs/dialog_templates.dart';
 import 'package:nom_order/widgets/menu/menu_section.dart';
 
 import '../../../../controller/controller.dart';
+import 'category/edit_category_menu.dart';
 
 class EditMenuPage extends StatefulWidget {
   final Controller controller;

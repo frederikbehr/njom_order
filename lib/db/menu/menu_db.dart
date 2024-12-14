@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:nom_order/models/item/item.dart';
 
 class MenuDB {
   final FirebaseFirestore _firebase;
@@ -18,6 +19,28 @@ class MenuDB {
       _categoriesDocName : FieldValue.arrayUnion([category]),
     });
   }
+
+  Future addItem(Item item) async {
+    await _items.doc().set({
+      'title' : item.title,
+      'description' : item.description,
+      'price' : item.price,
+      'category' : item.category,
+      'imageURL' : item.imageURL
+    });
+  }
+
+  Future updateItem(Item item) async {
+    await _items.doc().update({
+      'title' : item.title,
+      'description' : item.description,
+      'price' : item.price,
+      'category' : item.category,
+      'imageURL' : item.imageURL
+    });
+  }
+
+  Future deleteItem(Item item) async => await _items.doc(item.id).delete();
 
   Future removeCategory(String category) async {
     await _user.update({

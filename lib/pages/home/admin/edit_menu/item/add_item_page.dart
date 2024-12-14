@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nom_order/data/dimensions.dart';
 import 'package:nom_order/models/theme/theme_setting.dart';
 import 'package:nom_order/widgets/buttons/custom_button.dart';
 import 'package:nom_order/widgets/buttons/submit_button.dart';

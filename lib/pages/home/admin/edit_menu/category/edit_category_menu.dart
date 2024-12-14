@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:nom_order/data/dimensions.dart';
-import 'package:nom_order/pages/home/admin/edit_menu/category_card.dart';
+import 'package:nom_order/pages/home/admin/edit_menu/category/category_card.dart';
 import 'package:nom_order/pages/loading/loading.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:nom_order/widgets/dialogs/dialog_templates.dart';
 
-import '../../../../db/menu/menu_db.dart';
-import '../../../../models/theme/theme_setting.dart';
+import '../../../../../db/menu/menu_db.dart';
+import '../../../../../models/theme/theme_setting.dart';
 
 class EditCategoryMenu extends StatefulWidget {
   final String title;
