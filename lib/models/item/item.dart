@@ -3,7 +3,7 @@ class Item {
   final String title;
   final String description;
   final double price;
-  final String imageURL;
+  final String? imageURL;
   final String category;
 
   const Item({

@@ -6,7 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:nom_order/pages/register/register_text_field.dart';
 import 'package:nom_order/pages/register/sign_in_option_button.dart';
 import 'package:nom_order/widgets/buttons/legalese_button.dart';
-import 'package:nom_order/widgets/custom_appbar.dart';
+import 'package:nom_order/widgets/app_bar/custom_appbar.dart';
 import 'package:nom_order/widgets/dialogs/dialog_templates.dart';
 import '../../controller/controller.dart';
 import '../../data/dimensions.dart';

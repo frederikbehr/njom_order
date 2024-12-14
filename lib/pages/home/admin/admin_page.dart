@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:nom_order/models/order/order_stage.dart';
 import 'package:nom_order/pages/home/admin/edit_menu/edit_menu_page.dart';
 import 'package:nom_order/pages/home/admin/settings/settings.dart';
-import 'package:nom_order/pages/home/admin/settings_bar.dart';
-import 'package:nom_order/widgets/custom_appbar.dart';
+import 'package:nom_order/pages/home/admin/top_bar.dart';
+import 'package:nom_order/widgets/app_bar/custom_appbar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../controller/controller.dart';
 
@@ -33,7 +33,7 @@ class _AdminPageState extends State<AdminPage> {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            SettingsBar(
+            TopBar(
               themeSetting: widget.controller.themeSetting,
               onChanged: (val) => setState(() => filterByStage = val),
               onMenuEditButtonPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) {

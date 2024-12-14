@@ -12,7 +12,7 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final BorderRadius borderRadius;
   final bool? obscureText;
-  final String Function(String?)? validator;
+  final String? Function(String?)? validator;
   final FocusNode? focusNode;
   final int? maxLines;
   final double? horizontalPadding;

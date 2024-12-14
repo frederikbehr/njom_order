@@ -6,12 +6,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../models/order/order_stage.dart';
 import '../../../widgets/buttons/subtle_button.dart';
 
-class SettingsBar extends StatefulWidget {
+class TopBar extends StatefulWidget {
   final ThemeSetting themeSetting;
   final Function(OrderStage) onChanged;
   final VoidCallback onMenuEditButtonPressed;
   final VoidCallback onSettingsButtonPressed;
-  const SettingsBar({
+  const TopBar({
     super.key,
     required this.themeSetting,
     required this.onChanged,
@@ -20,10 +20,10 @@ class SettingsBar extends StatefulWidget {
   });
 
   @override
-  State<SettingsBar> createState() => _SettingsBarState();
+  State<TopBar> createState() => _TopBarState();
 }
 
-class _SettingsBarState extends State<SettingsBar> {
+class _TopBarState extends State<TopBar> {
   OrderStage? selectedStageFiltering;
   final List<OrderStage?> stages = [
     null,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:nom_order/pages/home/admin/settings/settings_item.dart';
 import 'package:nom_order/widgets/buttons/submit_button.dart';
-import 'package:nom_order/widgets/custom_appbar.dart';
+import 'package:nom_order/widgets/app_bar/custom_appbar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:nom_order/widgets/dialogs/dialog_templates.dart';
 

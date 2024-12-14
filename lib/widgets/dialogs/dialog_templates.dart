@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:nom_order/models/theme/theme_setting.dart';
-import 'package:nom_order/widgets/custom_appbar.dart';
+import 'package:nom_order/pages/loading/loading.dart';
+import 'package:nom_order/widgets/app_bar/custom_appbar.dart';
 
 import '../buttons/custom_button.dart';
 
@@ -93,6 +94,117 @@ class DialogTemplates {
       barrierColor: Colors.black12,
       barrierDismissible: true,
       builder: (BuildContext context) => SingleChildScrollView(child: child),
+    );
+  }
+
+  void confirmDialog(BuildContext context, String warningMessage, VoidCallback onConfirm) {
+    showDialog(
+      context: context,
+      barrierColor: Colors.black12,
+      barrierDismissible: true,
+      builder: (BuildContext context) => Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(32),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(themeSetting.borderRadiusValue),
+              color: themeSetting.dialog,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.are_you_sure,
+                  style: TextStyle(
+                    color: themeSetting.titleOnBackground,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                Text(
+                  warningMessage,
+                  style: TextStyle(
+                    color: themeSetting.bodyOnBackground,
+                    fontSize: 16,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 32),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CustomButton(
+                      onPressed: () => Navigator.pop(context),
+                      borderRadius: BorderRadius.circular(themeSetting.borderRadiusValue),
+                      backgroundColor: Colors.transparent,
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(
+                          AppLocalizations.of(context)!.cancel,
+                          style: TextStyle(
+                            color: themeSetting.bodyOnBackground,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 32),
+                    CustomButton(
+                      onPressed: () => onConfirm(),
+                      borderRadius: BorderRadius.circular(themeSetting.borderRadiusValue),
+                      shapeBorder: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(themeSetting.borderRadiusValue),
+                      ),
+                      backgroundColor: themeSetting.accent,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                        child: Text(
+                          AppLocalizations.of(context)!.confirm,
+                          style: TextStyle(
+                            color: themeSetting.titleOnColor,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void openLoadingDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierColor: Colors.black45,
+      barrierDismissible: true,
+      builder: (BuildContext context) => Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Loading(themeSetting: themeSetting),
+            const SizedBox(height: 12),
+            Text(
+              AppLocalizations.of(context)!.uploading,
+              style: TextStyle(
+                color: themeSetting.bodyOnColor,
+                fontSize: 18,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 

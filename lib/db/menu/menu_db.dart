@@ -14,6 +14,8 @@ class MenuDB {
     _items = _user.collection("items");
   }
 
+  Stream<QuerySnapshot> getItemStreamReference() => _items.snapshots();
+
   Future addCategory(String category) async {
     await _user.update({
       _categoriesDocName : FieldValue.arrayUnion([category]),

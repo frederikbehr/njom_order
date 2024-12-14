@@ -5,16 +5,20 @@ import 'package:nom_order/widgets/buttons/custom_button.dart';
 class CustomIconButton extends StatelessWidget {
   final ThemeSetting themeSetting;
   final VoidCallback onPressed;
-  final double? fontSize;
+  final double? iconSize;
   final EdgeInsets? padding;
   final IconData icon;
+  final Color? background;
+  final Color? iconColor;
   const CustomIconButton({
     super.key,
     required this.themeSetting,
     required this.onPressed,
-    this.fontSize,
+    this.iconSize,
     this.padding,
     required this.icon,
+    this.background,
+    this.iconColor,
   });
 
   @override
@@ -26,13 +30,13 @@ class CustomIconButton extends StatelessWidget {
         shapeBorder: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100),
         ),
-        backgroundColor: themeSetting.accent,
+        backgroundColor: background ?? themeSetting.accent,
         child: Padding(
           padding: const EdgeInsets.all(8),
           child: Icon(
             icon,
-            size: 24,
-            color: themeSetting.bodyOnColor,
+            size: iconSize ?? 24,
+            color: iconColor ?? themeSetting.bodyOnColor,
           ),
         ),
       ),

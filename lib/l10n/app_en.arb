@@ -216,7 +216,7 @@
   "@call_a_waiter" : {
     "description" : "for order page"
   },
-  "call" : "Call",
+  "call" : "Call personnel",
   "@call" : {
     "description" : "for order page"
   },
@@ -376,6 +376,30 @@
   "@no_categories" : {
     "description" : "for admin page"
   },
+  "invalid_price" : "Please enter a number",
+  "@invalid_price" : {
+    "description" : "for admin page"
+  },
+  "invalid_text_field" : "Field cannot be empty",
+  "@invalid_text_field" : {
+    "description" : "for admin page"
+  },
+  "select_image" : "Select picture",
+  "@select_image" : {
+    "description" : "for admin page"
+  },
+  "uploading" : "Uploading...",
+  "@uploading" : {
+    "description" : "for admin page"
+  },
+  "are_you_sure" : "Are you sure?",
+  "@are_you_sure" : {
+    "description" : "for admin page"
+  },
+  "confirm" : "Confirm",
+  "@confirm" : {
+    "description" : "for admin page"
+  },
   "x_was_deleted" : "{x} was deleted",
   "@x_was_deleted" : {
     "description" : "for menu editing page",
@@ -384,6 +408,14 @@
         "type" : "String"
       }
     }
+  },
+  "delete_x" : "You are trying to delete \"{x}\"",
+  "@delete_x" : {
+    "description" : "for menu editing page",
+    "placeholders" : {
+      "x" : {
+        "type" : "String"
+      }
+    }
   }
-
 }

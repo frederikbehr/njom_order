@@ -3,12 +3,11 @@ import 'package:nom_order/data/dimensions.dart';
 import 'package:nom_order/db/menu/menu_db.dart';
 import 'package:nom_order/pages/home/admin/edit_menu/category/add_category_page.dart';
 import 'package:nom_order/pages/home/admin/edit_menu/item/add_item_page.dart';
+import 'package:nom_order/pages/home/admin/edit_menu/item/edit_item_menu.dart';
 import 'package:nom_order/widgets/buttons/icon_text_button.dart';
-import 'package:nom_order/widgets/custom_appbar.dart';
+import 'package:nom_order/widgets/app_bar/custom_appbar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:nom_order/widgets/dialogs/dialog_templates.dart';
-import 'package:nom_order/widgets/menu/menu_section.dart';
-
 import '../../../../controller/controller.dart';
 import 'category/edit_category_menu.dart';
 
@@ -23,6 +22,7 @@ class EditMenuPage extends StatefulWidget {
 class _EditMenuPageState extends State<EditMenuPage> {
   late final DialogTemplates dialogTemplates = DialogTemplates(themeSetting: widget.controller.themeSetting);
   late final MenuDB menuDB = MenuDB(widget.controller.firebase, widget.controller.getUID()!);
+  List<String> categories = [];
 
   void openAddItemMenu() {
     dialogTemplates.fullPageDialog(
@@ -30,6 +30,9 @@ class _EditMenuPageState extends State<EditMenuPage> {
       AddItemPage(
         themeSetting: widget.controller.themeSetting,
         onAdded: () => setState(() {}),
+        categories: categories,
+        uid: widget.controller.getUID()!,
+        menuDB: menuDB,
       ),
       AppLocalizations.of(context)!.add_item,
     );
@@ -74,11 +77,13 @@ class _EditMenuPageState extends State<EditMenuPage> {
                     themeSetting: widget.controller.themeSetting,
                     menuDB: menuDB,
                     dialogTemplates: dialogTemplates,
+                    onCategoriesReceived: (val) => categories = val,
                   ),
-                  MenuSection(
+                  EditItemMenu(
                     title: AppLocalizations.of(context)!.items,
-                    items: [],
                     themeSetting: widget.controller.themeSetting,
+                    menuDB: menuDB,
+                    dialogTemplates: dialogTemplates,
                   ),
                   const SizedBox(height: 72),
                 ],

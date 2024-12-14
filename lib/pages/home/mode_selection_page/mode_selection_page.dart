@@ -6,7 +6,7 @@ import 'package:nom_order/pages/home/mode_selection_page/mode_selection_button.d
 import 'package:nom_order/pages/home/mode_selection_page/table_id_text_field.dart';
 import 'package:nom_order/widgets/buttons/icon_text_button.dart';
 import 'package:nom_order/widgets/buttons/submit_button.dart';
-import 'package:nom_order/widgets/custom_appbar.dart';
+import 'package:nom_order/widgets/app_bar/custom_appbar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../models/device/device_mode.dart';
 

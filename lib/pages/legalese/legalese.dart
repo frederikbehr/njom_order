@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nom_order/widgets/custom_appbar.dart';
+import 'package:nom_order/widgets/app_bar/custom_appbar.dart';
 import 'dart:io' show Platform;
 
 import '../../models/theme/theme_setting.dart';
