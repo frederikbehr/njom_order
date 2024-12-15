@@ -2,15 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:nom_order/data/dimensions.dart';
 import 'package:nom_order/db/menu/menu_db.dart';
+import 'package:nom_order/db/order/order_db.dart';
+import 'package:nom_order/models/item/item_display.dart';
+import 'package:nom_order/models/order/cart.dart';
 import 'package:nom_order/models/order/order.dart';
 import 'package:nom_order/pages/home/ordering/category_bar/category_bar.dart';
 import 'package:nom_order/pages/home/ordering/category_section/category_section.dart';
 import 'package:nom_order/pages/home/ordering/help_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:nom_order/pages/home/ordering/item_page/item_page.dart';
+import 'package:nom_order/pages/home/ordering/order_button/order_button.dart';
+import 'package:nom_order/pages/home/ordering/cart_page/cart_page.dart';
 import 'package:nom_order/widgets/buttons/custom_button.dart';
 import 'package:nom_order/widgets/buttons/icon_button.dart';
-import 'package:nom_order/widgets/buttons/icon_text_button.dart';
+import 'package:nom_order/widgets/dialogs/dialog_templates.dart';
 import '../../../controller/controller.dart';
+import '../../../models/item/item.dart';
 
 class OrderingPage extends StatefulWidget {
   final Controller controller;
@@ -25,17 +32,16 @@ class OrderingPage extends StatefulWidget {
 }
 
 class _OrderingPageState extends State<OrderingPage> {
+  final GlobalKey<OrderButtonState> _orderButtonKey = GlobalKey();
   final ScrollController _scrollController = ScrollController();
+  late final DialogTemplates dialogTemplates = DialogTemplates(themeSetting: widget.controller.themeSetting);
   late final List<GlobalKey> _keys = List.generate(
     widget.controller.userData.categories.length, (_) => GlobalKey());
   late final MenuDB menuDB = MenuDB(widget.controller.firebase, widget.controller.getUID()!);
-  late final Order order = Order(
-    id: "",
+  late final OrderDB orderDB = OrderDB(widget.controller.firebase, widget.controller.getUID()!);
+  late final Cart cart = Cart(
     items: [],
     tableId: widget.controller.deviceInfo!.tableId,
-    timeReceived: null,
-    amountToPay: 0,
-    orderStage: null,
   );
 
   Future signOut() async {
@@ -54,6 +60,58 @@ class _OrderingPageState extends State<OrderingPage> {
       curve: Curves.easeOut,
       alignment: -0.4,
     );
+  }
+
+  void addToCart(Item item) {
+    dialogTemplates.showScaffoldMessage(
+      context,
+      !cart.contains(item)? AppLocalizations.of(context)!.x_added_to_cart(item.title)
+          : AppLocalizations.of(context)!.another_x_added_to_cart(item.title),
+      const Duration(milliseconds: 700),
+    );
+    cart.addMenuItem(item);
+    _orderButtonKey.currentState?.update(cart.items.length);
+  }
+
+  void showItemDialog(ItemDisplay item) {
+    dialogTemplates.openDialog(context, ItemPage(
+      item: item,
+      themeSetting: widget.controller.themeSetting,
+      onAddToCard: (val) => addToCart(val),
+    ));
+  }
+
+  Future sendOrder(MenuOrder order) async {
+    Navigator.pop(context);
+    if (order.items.isNotEmpty) {
+      await orderDB.addOrder(order);
+      cart.reset();
+      _orderButtonKey.currentState?.update(0);
+      setState(() {});
+      dialogTemplates.showScaffoldMessage(context, AppLocalizations.of(context)!.order_sent, const Duration(seconds: 2));
+    } else {
+      dialogTemplates.showScaffoldMessage(context, AppLocalizations.of(context)!.order_empty, const Duration(seconds: 2));
+    }
+  }
+
+  Future openCart() async {
+    await dialogTemplates.openModal(
+      context,
+      CartPage(
+        themeSetting: widget.controller.themeSetting,
+        order: cart.makeOrder(),
+        onSend: (order) => sendOrder(order),
+        onDecrement: (val) {
+          int cartIndex = cart.items.indexWhere((e) => e.title == val.item.title && e.description == val.item.description);
+          if (cartIndex == -1) {
+            debugPrint("Could not decrement item from order");
+          } else {
+            cart.items.removeAt(cartIndex);
+            _orderButtonKey.currentState?.update(cart.items.length);
+          }
+        },
+      ),
+    ).then((_) => _orderButtonKey.currentState?.update(cart.items.length));
   }
 
   @override
@@ -78,6 +136,8 @@ class _OrderingPageState extends State<OrderingPage> {
                       category: widget.controller.userData.categories[index],
                       themeSetting: widget.controller.themeSetting,
                       stream: menuDB.getItemsByCategoryStreamReference(widget.controller.userData.categories[index]),
+                      onItemPressed: (val) => showItemDialog(val),
+                      onAddToCart: (val) => addToCart(val),
                     );
                   },
                 ),
@@ -95,7 +155,7 @@ class _OrderingPageState extends State<OrderingPage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 144),
+                const SizedBox(height: 240),
               ],
             ),
           ),
@@ -133,16 +193,10 @@ class _OrderingPageState extends State<OrderingPage> {
                         padding: const EdgeInsets.all(16),
                       ),
                     ),
-                    CustomIconTextButton(
+                    OrderButton(
+                      key: _orderButtonKey,
                       themeSetting: widget.controller.themeSetting,
-                      onPressed: () {},
-                      fontSize: 20,
-                      backgroundColor: widget.controller.themeSetting.primaryColor,
-                      padding: EdgeInsets.symmetric(vertical: 16, horizontal: width*0.16),
-                      text: "${AppLocalizations.of(context)!.my_order} (${order.items.length})",
-                      icon: Icons.check_rounded,
-                      reverse: true,
-                      addPadding: true,
+                      onPressed: () => openCart(),
                     ),
                     CustomIconButton(
                       themeSetting: widget.controller.themeSetting,

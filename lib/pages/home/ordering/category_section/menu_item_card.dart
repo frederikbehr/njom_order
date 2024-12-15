@@ -7,15 +7,28 @@ class MenuItemCard extends StatelessWidget {
   final ThemeSetting themeSetting;
   final Item item;
   final double cardDiameter;
+  final Function(Widget?) onPressed;
+  final VoidCallback onAddToCart;
   const MenuItemCard({
     super.key,
     required this.themeSetting,
     required this.item,
     required this.cardDiameter,
+    required this.onPressed,
+    required this.onAddToCart,
   });
 
   @override
   Widget build(BuildContext context) {
+    late final Widget? imageWidget;
+    if (item.imageURL != null) {
+      imageWidget = Image.network(
+        item.imageURL!,
+        fit: BoxFit.cover,
+      );
+    } else {
+      imageWidget = null;
+    }
     return Material(
       color: Colors.white,
       shape: RoundedRectangleBorder(
@@ -25,7 +38,7 @@ class MenuItemCard extends StatelessWidget {
         ),
       ),
       child: InkWell(
-        onTap: () {},
+        onTap: () => onPressed(imageWidget),
         splashColor: themeSetting.secondary.withOpacity(0.2),
         child: SizedBox(
           width: cardDiameter,
@@ -43,10 +56,7 @@ class MenuItemCard extends StatelessWidget {
                       height: cardDiameter/2,
                       child: item.imageURL == null? const SizedBox() : ClipRRect(
                         borderRadius: BorderRadius.circular(themeSetting.borderRadiusValue),
-                        child: Image.network(
-                          item.imageURL!,
-                          fit: BoxFit.cover,
-                        ),
+                        child: imageWidget!,
                       ),
                     ),
                     const SizedBox(height: 12),
@@ -90,7 +100,7 @@ class MenuItemCard extends StatelessWidget {
                       ),
                       CustomIconButton(
                         themeSetting: themeSetting,
-                        onPressed: () {},
+                        onPressed: () => onAddToCart(),
                         icon: Icons.shopping_basket_outlined,
                         padding: const EdgeInsets.all(16),
                         iconColor: themeSetting.accent.computeLuminance() > 0.5? Colors.black45 : Colors.white60,

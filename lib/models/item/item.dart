@@ -14,4 +14,7 @@ class Item {
     required this.imageURL,
     required this.category,
   });
+
+  @override
+  String toString() => "$id::$title::$description::$price::$imageURL::$category";
 }

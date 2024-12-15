@@ -24,7 +24,7 @@ class ThemeSetting {
 
   //Fills
   final Color background = const Color(0xffeeeeee);
-  final Color dialog = const Color(0xffeeeeee);
+  final Color dialog = const Color(0xffffffff);
 
   //Text
   final Color titleOnColor = Colors.white;

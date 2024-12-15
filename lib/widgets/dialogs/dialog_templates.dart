@@ -1,3 +1,4 @@
+import 'package:bottom_sheet/bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:nom_order/models/theme/theme_setting.dart';
@@ -92,15 +93,28 @@ class DialogTemplates {
     showDialog(
       context: context,
       barrierColor: Colors.black12,
-      barrierDismissible: true,
-      builder: (BuildContext context) => SingleChildScrollView(child: child),
+      builder: (BuildContext context) => child,
+    );
+  }
+
+  Future openModal(BuildContext context, Widget child) async {
+    await showModalBottomSheet(
+      context: context,
+      showDragHandle: true,
+      backgroundColor: themeSetting.dialog,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(themeSetting.borderRadiusValue),
+      ),
+      barrierColor: Colors.black26,
+
+      builder: (BuildContext context) => child,
     );
   }
 
   void confirmDialog(BuildContext context, String warningMessage, VoidCallback onConfirm) {
     showDialog(
       context: context,
-      barrierColor: Colors.black12,
+      barrierColor: Colors.black26,
       barrierDismissible: true,
       builder: (BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
@@ -218,17 +232,18 @@ class DialogTemplates {
     }));
   }
 
-  void showScaffoldMessage(BuildContext context, String message) {
+  void showScaffoldMessage(BuildContext context, String message, Duration duration) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         backgroundColor: themeSetting.secondary,
         content: Center(
           child: Text(
             message,
-            style: TextStyle(fontSize: 18, color: themeSetting.titleOnBackground, height: 1),
+            style: TextStyle(fontSize: 22, color: themeSetting.titleOnColor),
             textAlign: TextAlign.center,
           ),
         ),
+        duration: duration,
       ),
     );
   }

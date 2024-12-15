@@ -1,29 +1,44 @@
-import '../item/item.dart';
+import 'package:nom_order/models/order/order_item.dart';
 import 'order_stage.dart';
 
-class Order {
+class MenuOrder {
   final String id;
-  final List<Item> items;
+  final List<OrderItem> items;
   final String tableId;
-  DateTime? timeReceived;
-  double? amountToPay;
-  OrderStage? orderStage;
+  final DateTime orderCreated;
+  double totalPrice;
+  final OrderStage stage;
 
-  Order({
+  MenuOrder({
     required this.id,
     required this.items,
     required this.tableId,
-    required this.timeReceived,
-    required this.amountToPay,
-    required this.orderStage,
+    required this.orderCreated,
+    required this.totalPrice,
+    required this.stage,
   });
 
-  void addMenuItem(Item item) => items.add(item);
+  List<String> getItemsAsString() => items.map((e) => e.toString()).toList();
 
-  void reset() {
-    items.clear();
-    timeReceived = null;
-    amountToPay = null;
-    orderStage = null;
+  void removeItem(OrderItem item) {
+    items.remove(item);
+    updateTotalPrice();
   }
+  void decrementItem(OrderItem item) {
+    if (item.amount == 1) {
+      removeItem(item);
+    } else {
+      item.decrementAmount();
+    }
+    updateTotalPrice();
+  }
+
+  void updateTotalPrice() {
+    double result = 0;
+    for (OrderItem item in items) {
+      result += item.price;
+    }
+    totalPrice = result;
+  }
+
 }

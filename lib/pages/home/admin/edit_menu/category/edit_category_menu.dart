@@ -42,6 +42,7 @@ class _EditCategoryMenuState extends State<EditCategoryMenu> {
   void showMessage(String category) => widget.dialogTemplates.showScaffoldMessage(
     context,
     AppLocalizations.of(context)!.x_was_deleted('"$category"'),
+    const Duration(milliseconds: 3000),
   );
 
   @override

@@ -208,7 +208,7 @@
   "@order_now" : {
     "description" : "for login page"
   },
-  "my_order" : "Cart",
+  "my_order" : "Order",
   "@my_order" : {
     "description" : "for login page"
   },
@@ -220,7 +220,7 @@
   "@need_help" : {
     "description" : "for order page"
   },
-  "call_a_waiter" : "Get us to come by",
+  "call_a_waiter" : "Request a waiter here",
   "@call_a_waiter" : {
     "description" : "for order page"
   },
@@ -412,6 +412,26 @@
   "@confirm" : {
     "description" : "for admin page"
   },
+  "order_summary" : "Order summary",
+  "@order_summary" : {
+    "description" : "for cart page"
+  },
+  "total" : "Total",
+  "@total" : {
+    "description" : "for cart page"
+  },
+  "add_to_cart" : "Add to order",
+  "@add_to_cart" : {
+    "description" : "for cart page"
+  },
+  "order_empty" : "Order is empty",
+  "@order_empty" : {
+    "description" : "for cart page"
+  },
+  "order_sent" : "Order has been sent",
+  "@order_sent" : {
+    "description" : "for cart page"
+  },
   "x_was_deleted" : "{x} was deleted",
   "@x_was_deleted" : {
     "description" : "for menu editing page",
@@ -423,6 +443,24 @@
   },
   "delete_x" : "You are trying to delete \"{x}\"",
   "@delete_x" : {
+    "description" : "for menu editing page",
+    "placeholders" : {
+      "x" : {
+        "type" : "String"
+      }
+    }
+  },
+  "x_added_to_cart" : "\"{x}\" was added to the order.",
+  "@x_added_to_cart" : {
+    "description" : "for menu editing page",
+    "placeholders" : {
+      "x" : {
+        "type" : "String"
+      }
+    }
+  },
+  "another_x_added_to_cart" : "Another \"{x}\" was added to the order.",
+  "@x_added_to_cart" : {
     "description" : "for menu editing page",
     "placeholders" : {
       "x" : {

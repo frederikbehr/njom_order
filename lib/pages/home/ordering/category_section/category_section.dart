@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:nom_order/data/dimensions.dart';
+import 'package:nom_order/models/item/item_display.dart';
 import 'package:nom_order/models/theme/theme_setting.dart';
 import 'package:nom_order/pages/home/ordering/category_section/menu_item_card.dart';
 
@@ -12,11 +13,15 @@ class CategorySection extends StatelessWidget {
   final String category;
   final ThemeSetting themeSetting;
   final Stream<QuerySnapshot> stream;
+  final Function(ItemDisplay) onItemPressed;
+  final Function(Item) onAddToCart;
   const CategorySection({
     super.key,
     required this.category,
     required this.themeSetting,
     required this.stream,
+    required this.onItemPressed,
+    required this.onAddToCart,
   });
 
   double calculateAspectRatio() {
@@ -78,6 +83,8 @@ class CategorySection extends StatelessWidget {
                       themeSetting: themeSetting,
                       item: items[index]!,
                       cardDiameter: cardDiameter,
+                      onPressed: (val) => onItemPressed(ItemDisplay(item: items[index]!, image: val)),
+                      onAddToCart: () => onAddToCart(items[index]!),
                     );
                   },
                 ),
