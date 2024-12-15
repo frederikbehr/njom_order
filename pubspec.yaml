@@ -63,3 +63,6 @@ flutter:
     - family: noto
       fonts:
         - asset: assets/fonts/NotoSans.otf
+    - family: inter
+      fonts:
+        - asset: assets/fonts/Inter-VariableFont_opsz,wght.ttf

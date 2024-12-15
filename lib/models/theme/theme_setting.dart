@@ -2,9 +2,25 @@ import 'package:flutter/material.dart';
 
 class ThemeSetting {
   //Color pallete
+  //standard
   final Color primaryColor = const Color(0xff004346);
   final Color secondary = const Color(0xff94C9A9);
   final Color accent = const Color(0xffEE964B);
+
+  //blue test
+  /*final Color primaryColor = const Color(0xff1D3354);
+  final Color secondary = const Color(0xff80CED7);
+  final Color accent = const Color(0xffFF785A);*/
+
+  //ikea
+  /*final Color primaryColor = const Color(0xff0158ab);
+  final Color secondary = const Color(0xfffbd913);
+  final Color accent = const Color(0xff002d5e);*/
+
+  //lego
+  /*final Color primaryColor = const Color(0xffd11012);
+  final Color secondary = const Color(0xffffffff);
+  final Color accent = const Color(0xfff6ec36);*/
 
   //Fills
   final Color background = const Color(0xffeeeeee);

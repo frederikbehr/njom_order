@@ -13,6 +13,7 @@ class CustomIconTextButton extends StatelessWidget {
   final bool? addPadding;
   final Color? backgroundColor;
   final Color? iconColor;
+  final Color? fontColor;
   const CustomIconTextButton({
     super.key,
     required this.themeSetting,
@@ -25,6 +26,7 @@ class CustomIconTextButton extends StatelessWidget {
     this.addPadding,
     this.backgroundColor,
     this.iconColor,
+    this.fontColor,
   });
 
   @override
@@ -46,13 +48,13 @@ class CustomIconTextButton extends StatelessWidget {
               Icon(
                 icon,
                 size: fontSize != null? fontSize!*1.5 : 36,
-                color: iconColor ?? themeSetting.bodyOnColor,
+                color: iconColor ?? fontColor ?? themeSetting.bodyOnColor,
               ),
               const SizedBox(width: 12),
               Text(
                 text,
                 style: TextStyle(
-                  color: themeSetting.titleOnColor,
+                  color: fontColor ?? themeSetting.titleOnColor,
                   fontWeight: FontWeight.bold,
                   fontSize: fontSize ?? 18,
                   height: 1.5

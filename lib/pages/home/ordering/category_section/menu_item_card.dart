@@ -79,7 +79,7 @@ class MenuItemCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "${item.price.toStringAsFixed(2)} DKK",
+                        "${item.price.toStringAsFixed(2).replaceFirst(".", ",")} DKK",
                         style: TextStyle(
                           color: themeSetting.titleOnBackground,
                           fontSize: 18,
@@ -92,7 +92,9 @@ class MenuItemCard extends StatelessWidget {
                         themeSetting: themeSetting,
                         onPressed: () {},
                         icon: Icons.shopping_basket_outlined,
-                        iconSize: 28,
+                        padding: const EdgeInsets.all(16),
+                        iconColor: themeSetting.accent.computeLuminance() > 0.5? Colors.black45 : Colors.white60,
+                        iconSize: 24,
                       ),
                     ],
                   ),

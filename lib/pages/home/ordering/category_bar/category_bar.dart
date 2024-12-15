@@ -32,7 +32,7 @@ class CategoryBar extends StatelessWidget {
               themeSetting: themeSetting,
               onPressed: () => onCategorySelect(index),
               text: items[index],
-              onColor: false,
+              onColor: true,
             ),
           );
         },

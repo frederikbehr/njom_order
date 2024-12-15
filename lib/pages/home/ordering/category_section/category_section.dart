@@ -19,9 +19,16 @@ class CategorySection extends StatelessWidget {
     required this.stream,
   });
 
+  double calculateAspectRatio() {
+    const double spacing = 12;
+    double cardWidth = (width-spacing*4)/3;
+    double cardHeight = 327;
+    return cardWidth / cardHeight;
+  }
+
   @override
   Widget build(BuildContext context) {
-    double cardDiameter = (width-12*4)/3-2*2*3;
+    double cardDiameter = (width-12*4)/3;
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +64,7 @@ class CategorySection extends StatelessWidget {
               return SizedBox(
                 width: width,
                 child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio: 0.8),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio: calculateAspectRatio()),
                   itemCount: items.length,
                   shrinkWrap: true,
                   padding: EdgeInsets.zero,

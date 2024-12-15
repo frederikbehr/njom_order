@@ -50,8 +50,8 @@ class _OrderingPageState extends State<OrderingPage> {
   void _scrollToKey(int index) {
     Scrollable.ensureVisible(
       _keys[index].currentContext!,
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.ease,
+      duration: const Duration(milliseconds: 700),
+      curve: Curves.easeOut,
       alignment: -0.4,
     );
   }
@@ -129,7 +129,7 @@ class _OrderingPageState extends State<OrderingPage> {
                         themeSetting: widget.controller.themeSetting,
                         onPressed: () {},
                         icon: Icons.language_outlined,
-                        iconSize: 30,
+                        iconSize: 32,
                         padding: const EdgeInsets.all(16),
                       ),
                     ),
@@ -140,17 +140,16 @@ class _OrderingPageState extends State<OrderingPage> {
                       backgroundColor: widget.controller.themeSetting.primaryColor,
                       padding: EdgeInsets.symmetric(vertical: 16, horizontal: width*0.16),
                       text: "${AppLocalizations.of(context)!.my_order} (${order.items.length})",
-                      icon: Icons.check,
+                      icon: Icons.check_rounded,
                       reverse: true,
                       addPadding: true,
-                      iconColor: widget.controller.themeSetting.accent,
                     ),
                     CustomIconButton(
                       themeSetting: widget.controller.themeSetting,
                       onPressed: () {}, icon: Icons.language_outlined,
-                      iconSize: 30,
+                      iconSize: 36,
                       backgroundColor: widget.controller.themeSetting.primaryColor,
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(14),
                     ),
                   ],
                 ),

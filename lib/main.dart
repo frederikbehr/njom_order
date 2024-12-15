@@ -50,7 +50,6 @@ class App extends StatelessWidget {
         title: 'Nom Order',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          fontFamily: "noto",
           primaryColor: Colors.grey,
         ),
         supportedLocales: L10n.all,

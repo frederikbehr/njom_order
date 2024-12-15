@@ -216,11 +216,11 @@
   "@error" : {
     "description" : "for errors"
   },
-  "need_help" : "Need Service?",
+  "need_help" : "Need help?",
   "@need_help" : {
     "description" : "for order page"
   },
-  "call_a_waiter" : "Get us to come over",
+  "call_a_waiter" : "Get us to come by",
   "@call_a_waiter" : {
     "description" : "for order page"
   },

@@ -48,6 +48,9 @@ class _HelpBarState extends State<HelpBar> {
           SubtleButton(
             themeSetting: widget.themeSetting,
             onPressed: () {},
+            backgroundColor: widget.themeSetting.secondary,
+            borderColor: widget.themeSetting.secondary,
+            fontColor: widget.themeSetting.primaryColor,
             text: AppLocalizations.of(context)!.call,
           ),
         ],

@@ -11,6 +11,7 @@ class SubtleButton extends StatelessWidget {
   final bool? onColor;
   final Color? backgroundColor;
   final Color? borderColor;
+  final Color? fontColor;
   const SubtleButton({
     super.key,
     required this.themeSetting,
@@ -21,6 +22,7 @@ class SubtleButton extends StatelessWidget {
     this.onColor,
     this.backgroundColor,
     this.borderColor,
+    this.fontColor,
   });
 
   @override
@@ -39,7 +41,7 @@ class SubtleButton extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-              color: onColor == null || onColor == true? themeSetting.titleOnColor : themeSetting.accent,
+              color: fontColor ?? (onColor == null || onColor == true? themeSetting.titleOnColor : themeSetting.accent),
               fontWeight: FontWeight.bold,
               fontSize: fontSize ?? 16,
               height: 1.5

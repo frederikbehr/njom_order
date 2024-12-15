@@ -28,7 +28,7 @@ class SignInOptionButton extends StatelessWidget {
 
   Color getAccentColor() {
     switch(signInOption) {
-      case SignInOption.email: return Colors.black;
+      case SignInOption.email: return themeSetting.accent;
       case SignInOption.apple: return Colors.black;
       case SignInOption.google: return const Color(0xffe34033);
     }
@@ -56,7 +56,7 @@ class SignInOptionButton extends StatelessWidget {
         color: isFilled()? themeSetting.dialog : themeSetting.background,
         shape: RoundedRectangleBorder(
           borderRadius: borderRadius,
-          side: BorderSide(color: getAccentColor(), width: 1.5),
+          side: BorderSide(color: getAccentColor(), width: 2),
         ),
         child: InkWell(
           borderRadius: borderRadius,
@@ -83,7 +83,7 @@ class SignInOptionButton extends StatelessWidget {
                 Text(
                   !isFilled()? AppLocalizations.of(context)!.sign_in_with_x(getButtonText(context)) : AppLocalizations.of(context)!.continue_with_email,
                   style: TextStyle(
-                    color: themeSetting.bodyOnBackground,
+                    color: themeSetting.titleOnBackground,
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                     height: 1,

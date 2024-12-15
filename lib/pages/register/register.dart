@@ -122,7 +122,7 @@ class _RegisterState extends State<Register> {
                               child: Column(
                                 children: [
                                   Text(
-                                    emailFieldController.text.isEmpty? AppLocalizations.of(context)!.lets_get_started : AppLocalizations.of(context)!.one_more_thing,
+                                    AppLocalizations.of(context)!.lets_get_started,
                                     style: TextStyle(
                                       color: widget.controllerInstance.themeSetting.titleOnBackground,
                                       height: 1.4,
@@ -133,11 +133,10 @@ class _RegisterState extends State<Register> {
                                   ),
                                   const SizedBox(height: 16),
                                   Text(
-                                    emailFieldController.text.isEmpty? AppLocalizations.of(context)!.fill_in_credentials : AppLocalizations.of(context)!.fill_in_password,
+                                    AppLocalizations.of(context)!.fill_in_credentials,
                                     style: TextStyle(
                                       color: widget.controllerInstance.themeSetting.bodyOnBackground,
                                       height: 1.2,
-                                      fontWeight: FontWeight.bold,
                                       fontSize: 15,
                                     ),
                                     textAlign: TextAlign.center,

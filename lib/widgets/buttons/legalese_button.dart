@@ -37,7 +37,7 @@ class LegaleseButton extends StatelessWidget {
                   TextSpan(
                     text: " ${AppLocalizations.of(context)!.terms_of_service}",
                     style: TextStyle(
-                      color: themeSetting.secondary,
+                      color: themeSetting.accent,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -48,7 +48,7 @@ class LegaleseButton extends StatelessWidget {
                   TextSpan(
                     text: AppLocalizations.of(context)!.privacy_policy,
                     style: TextStyle(
-                      color: themeSetting.secondary,
+                      color: themeSetting.accent,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
