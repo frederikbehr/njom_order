@@ -424,6 +424,10 @@
   "@add_to_cart" : {
     "description" : "for cart page"
   },
+  "help_is_coming" : "Waiter is coming",
+  "@help_is_coming" : {
+    "description" : "for cart page"
+  },
   "order_empty" : "Order is empty",
   "@order_empty" : {
     "description" : "for cart page"

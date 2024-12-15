@@ -17,6 +17,7 @@ import 'package:nom_order/widgets/buttons/custom_button.dart';
 import 'package:nom_order/widgets/buttons/icon_button.dart';
 import 'package:nom_order/widgets/dialogs/dialog_templates.dart';
 import '../../../controller/controller.dart';
+import '../../../db/help_request_db/help_request_db.dart';
 import '../../../models/item/item.dart';
 
 class OrderingPage extends StatefulWidget {
@@ -39,6 +40,7 @@ class _OrderingPageState extends State<OrderingPage> {
     widget.controller.userData.categories.length, (_) => GlobalKey());
   late final MenuDB menuDB = MenuDB(widget.controller.firebase, widget.controller.getUID()!);
   late final OrderDB orderDB = OrderDB(widget.controller.firebase, widget.controller.getUID()!);
+  late final HelpRequestDB helpRequestDB = HelpRequestDB(widget.controller.firebase, widget.controller.getUID()!);
   late final Cart cart = Cart(
     items: [],
     tableId: widget.controller.deviceInfo!.tableId,
@@ -164,7 +166,11 @@ class _OrderingPageState extends State<OrderingPage> {
             left: 0,
             child: Column(
               children: [
-                HelpBar(themeSetting: widget.controller.themeSetting),
+                HelpBar(
+                  themeSetting: widget.controller.themeSetting,
+                  helpRequestDB: helpRequestDB,
+                  tableId: widget.controller.deviceInfo!.tableId,
+                ),
                 CategoryBar(
                   themeSetting: widget.controller.themeSetting,
                   onCategorySelect: (val) => _scrollToKey(val),
